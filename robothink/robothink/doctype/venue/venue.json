@@ -1,0 +1,248 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2021-08-31 12:09:41.644446",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "venue_name",
+  "column_break_2",
+  "franschise",
+  "c6",
+  "franchise_name",
+  "c4",
+  "company",
+  "column_break_5",
+  "status",
+  "contract_details_section",
+  "contract_start_date",
+  "column_break_4",
+  "contract_end_date",
+  "column_break_6",
+  "contract_pdf",
+  "contact_details_section",
+  "contacts",
+  "facility_details_section",
+  "facilities",
+  "column_break_17",
+  "holiday_dates",
+  "address_details_section",
+  "address_line_1",
+  "town",
+  "column_break_10",
+  "address_line_2",
+  "postcode",
+  "column_break_14",
+  "venue_notes",
+  "section_break_18",
+  "warehouse"
+ ],
+ "fields": [
+  {
+   "fieldname": "venue_name",
+   "fieldtype": "Data",
+   "label": "Venue Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "contract_details_section",
+   "fieldtype": "Section Break",
+   "label": "Contract Details"
+  },
+  {
+   "fieldname": "contract_start_date",
+   "fieldtype": "Date",
+   "label": "Contract Start Date"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_end_date",
+   "fieldtype": "Date",
+   "label": "Contract End Date"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_pdf",
+   "fieldtype": "Attach",
+   "label": "Contract PDF"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "address_details_section",
+   "fieldtype": "Section Break",
+   "label": "Address Details"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address line 1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address line 2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "town",
+   "fieldtype": "Data",
+   "label": "Town",
+   "reqd": 1
+  },
+  {
+   "fieldname": "venue_notes",
+   "fieldtype": "Small Text",
+   "label": "Venue Notes",
+   "reqd": 1
+  },
+  {
+   "fieldname": "postcode",
+   "fieldtype": "Data",
+   "label": "Postcode",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "franschise",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Franschise",
+   "options": "Franchise",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "warehouse",
+   "options": "Warehouse",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "contact_details_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Details"
+  },
+  {
+   "fieldname": "contacts",
+   "fieldtype": "Table",
+   "label": "Contacts",
+   "options": "venue contacts table"
+  },
+  {
+   "fieldname": "facilities",
+   "fieldtype": "Table",
+   "label": "Facilities",
+   "options": "Venue facility prices"
+  },
+  {
+   "fieldname": "facility_details_section",
+   "fieldtype": "Section Break",
+   "label": "Facility Details"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive",
+   "reqd": 1
+  },
+  {
+   "fieldname": "holiday_dates",
+   "fieldtype": "Table",
+   "label": "Holiday Dates",
+   "options": "Holiday Dates"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "franschise.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "franschise.name1",
+   "fieldname": "franchise_name",
+   "fieldtype": "Data",
+   "label": "Franchise Name",
+   "read_only": 1
+  },
+  {
+   "default": "Venue:0",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "Venue:0"
+  },
+  {
+   "fieldname": "c4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "c6",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-10-18 12:49:27.577806",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Venue",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "venue_name",
+ "track_changes": 1
+}

@@ -1,0 +1,497 @@
+{
+ "actions": [],
+ "allow_events_in_timeline": 1,
+ "autoname": "naming_series:",
+ "creation": "2021-10-20 18:11:25.167541",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "heading",
+  "naming_series",
+  "sc1",
+  "attach_image",
+  "image",
+  "column_break_5",
+  "detail_image",
+  "mandatory_fields_section",
+  "name1",
+  "franchise",
+  "column_break_6",
+  "franchise_name",
+  "company",
+  "c34",
+  "courses",
+  "course_type",
+  "column_break_9",
+  "venue",
+  "venue_name",
+  "column_break_17",
+  "small_note",
+  "column_break_14",
+  "structured_learning",
+  "workshops",
+  "holiday_camps",
+  "after_school_clubs",
+  "birthday_party",
+  "section_break_28",
+  "first_week_of_course",
+  "last_week_of_course",
+  "column_break_15",
+  "individual_days",
+  "early_drop_off",
+  "late_pick_up",
+  "half_day_sessions",
+  "column_break_8",
+  "monday",
+  "tuseday",
+  "wednesday",
+  "thurseday",
+  "friday",
+  "saturday",
+  "sunday",
+  "c45",
+  "course_start_time",
+  "course_finish_time",
+  "column_break_28",
+  "morning_start_time",
+  "morning_finish_time",
+  "column_break_31",
+  "afternoon_start_time",
+  "afternoon_finish_time",
+  "pricing_section",
+  "full_week_price",
+  "column_break_40",
+  "full_day_price",
+  "half_day_price",
+  "column_break_43",
+  "early_drop_off_per_session_price",
+  "late_pick_up_per_session_price",
+  "additional_notes_section",
+  "notes"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "default": "You can schedule a course by choosing the course, choosing a venue to stage it, selecting the days and times it will run each week and then fine-tuning the schedule until it is perfect.",
+   "fieldname": "heading",
+   "fieldtype": "Small Text",
+   "label": "Heading",
+   "read_only": 1
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fetch_from": "company.franchise_id",
+   "fetch_if_empty": 1,
+   "fieldname": "franchise",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Franchise",
+   "options": "Franchise"
+  },
+  {
+   "fetch_from": "franchise.name1",
+   "fieldname": "franchise_name",
+   "fieldtype": "Data",
+   "label": "Franchise Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "venue",
+   "fieldtype": "Link",
+   "label": "Venue",
+   "options": "Venue"
+  },
+  {
+   "collapsible": 1,
+   "description": "Let us know a bit about how you run your course so we can customise the booking experience.",
+   "fieldname": "mandatory_fields_section",
+   "fieldtype": "Section Break",
+   "label": "Mandatory Fields"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:(doc.structured_learning != 1)",
+   "fieldname": "individual_days",
+   "fieldtype": "Check",
+   "label": "Individual days?"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "half_day_sessions",
+   "fieldtype": "Check",
+   "label": "Half day sessions?"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "early_drop_off",
+   "fieldtype": "Check",
+   "label": "Early drop off?"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "late_pick_up",
+   "fieldtype": "Check",
+   "label": "Late pick up?"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "monday",
+   "fieldtype": "Check",
+   "label": "Monday"
+  },
+  {
+   "default": "0",
+   "fieldname": "tuseday",
+   "fieldtype": "Check",
+   "label": "Tuseday"
+  },
+  {
+   "default": "0",
+   "fieldname": "wednesday",
+   "fieldtype": "Check",
+   "label": "Wednesday"
+  },
+  {
+   "default": "0",
+   "fieldname": "thurseday",
+   "fieldtype": "Check",
+   "label": "Thurseday"
+  },
+  {
+   "default": "0",
+   "fieldname": "friday",
+   "fieldtype": "Check",
+   "label": "Friday"
+  },
+  {
+   "default": "0",
+   "fieldname": "saturday",
+   "fieldtype": "Check",
+   "label": "Saturday"
+  },
+  {
+   "default": "0",
+   "fieldname": "sunday",
+   "fieldtype": "Check",
+   "label": "Sunday"
+  },
+  {
+   "collapsible": 1,
+   "description": "Give us your Course's opening and closing times.\n\n",
+   "fieldname": "section_break_28",
+   "fieldtype": "Section Break",
+   "label": "Course's opening times"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "description": "Let us know how much to charge for your course.\n\n",
+   "fieldname": "pricing_section",
+   "fieldtype": "Section Break",
+   "label": "Pricing"
+  },
+  {
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "morning_finish_time",
+   "fieldtype": "Time",
+   "label": "Morning finish time"
+  },
+  {
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "afternoon_start_time",
+   "fieldtype": "Time",
+   "label": "Afternoon start time"
+  },
+  {
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "afternoon_finish_time",
+   "fieldtype": "Time",
+   "label": "Afternoon finish time"
+  },
+  {
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "morning_start_time",
+   "fieldtype": "Time",
+   "label": "Morning start time"
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_31",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "full_week_price",
+   "fieldtype": "Currency",
+   "label": "Full Week Price"
+  },
+  {
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "full_day_price",
+   "fieldtype": "Currency",
+   "label": "Full Day Price"
+  },
+  {
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "half_day_price",
+   "fieldtype": "Currency",
+   "label": "Half Day Price"
+  },
+  {
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "early_drop_off_per_session_price",
+   "fieldtype": "Currency",
+   "label": "Early Drop off per session Price"
+  },
+  {
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "late_pick_up_per_session_price",
+   "fieldtype": "Currency",
+   "label": "Late Pick up per session Price"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Long Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "column_break_40",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_43",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "additional_notes_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Notes"
+  },
+  {
+   "fieldname": "course_type",
+   "fieldtype": "Link",
+   "label": "Course Type",
+   "options": "Courses Type"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "first_week_of_course",
+   "fieldtype": "Date",
+   "label": "First week of Course"
+  },
+  {
+   "fieldname": "last_week_of_course",
+   "fieldtype": "Date",
+   "label": "Last week of Course"
+  },
+  {
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "course_start_time",
+   "fieldtype": "Time",
+   "label": "Course start time"
+  },
+  {
+   "depends_on": "eval:doc.structured_learning != 1 ",
+   "fieldname": "course_finish_time",
+   "fieldtype": "Time",
+   "label": "Course finish time"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fetch_from": "course_type.structured_learning",
+   "fieldname": "structured_learning",
+   "fieldtype": "Check",
+   "label": " Structured Learning",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "course_type.workshops",
+   "fieldname": "workshops",
+   "fieldtype": "Check",
+   "label": " Workshops",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "course_type.holiday_camps",
+   "fieldname": "holiday_camps",
+   "fieldtype": "Check",
+   "label": " Holiday Camps",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "course_type.after_school_clubs",
+   "fieldname": "after_school_clubs",
+   "fieldtype": "Check",
+   "label": "After School Clubs",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "course_type.birthday__party",
+   "fieldname": "birthday_party",
+   "fieldtype": "Check",
+   "label": " Birthday Party",
+   "read_only": 1
+  },
+  {
+   "default": "C_",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "C_",
+   "read_only": 1
+  },
+  {
+   "fieldname": "attach_image",
+   "fieldtype": "Attach Image",
+   "label": "Attach image"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Image",
+   "label": "image",
+   "options": "attach_image"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sc1",
+   "fieldtype": "Section Break",
+   "label": "Upload Images"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "venue_name",
+   "fieldtype": "Data",
+   "label": "Venue Name"
+  },
+  {
+   "fieldname": "detail_image",
+   "fieldtype": "Attach Image",
+   "label": "Detail Image"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "small_note",
+   "fieldtype": "Text",
+   "label": "Small Note"
+  },
+  {
+   "fieldname": "courses",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Courses",
+   "options": "Courses",
+   "search_index": 1
+  },
+  {
+   "fieldname": "c34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "c45",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-12-07 15:22:34.237424",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Manage Courses",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "show_name_in_global_search": 1,
+ "show_preview_popup": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "track_seen": 1
+}

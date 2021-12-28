@@ -1,0 +1,130 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{day}-{##}",
+ "creation": "2021-12-03 23:19:11.094661",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "batch_name",
+  "time_intervals_section",
+  "day",
+  "column_break_4",
+  "from_time",
+  "column_break_6",
+  "to_time",
+  "seats_info_section",
+  "no_of_seats",
+  "column_break_10",
+  "occupied_seats",
+  "column_break_12",
+  "available_seats",
+  "info_section",
+  "enrolled_students"
+ ],
+ "fields": [
+  {
+   "fieldname": "day",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Day",
+   "options": "Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "label": "From Time"
+  },
+  {
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "label": "To Time"
+  },
+  {
+   "fieldname": "no_of_seats",
+   "fieldtype": "Int",
+   "label": "No of Seats"
+  },
+  {
+   "fieldname": "occupied_seats",
+   "fieldtype": "Int",
+   "label": "Occupied Seats"
+  },
+  {
+   "fieldname": "available_seats",
+   "fieldtype": "Int",
+   "label": "Available Seats"
+  },
+  {
+   "fieldname": "batch_name",
+   "fieldtype": "Data",
+   "label": "Batch Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "time_intervals_section",
+   "fieldtype": "Section Break",
+   "label": "Time Intervals"
+  },
+  {
+   "fieldname": "seats_info_section",
+   "fieldtype": "Section Break",
+   "label": "Seats Info"
+  },
+  {
+   "fieldname": "info_section",
+   "fieldtype": "Section Break",
+   "label": "Info"
+  },
+  {
+   "fieldname": "enrolled_students",
+   "fieldtype": "Table",
+   "label": "Enrolled Students",
+   "options": "Enrolled Students",
+   "read_only": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-12-09 00:11:33.947313",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Batches",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

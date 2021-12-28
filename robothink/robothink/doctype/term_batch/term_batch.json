@@ -1,0 +1,130 @@
+{
+ "_liked_by": "[\"Administrator\"]",
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2021-08-31 12:41:09.808846",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "section_break_2",
+  "batch_name",
+  "from_time",
+  "column_break_4",
+  "venue",
+  "to_time",
+  "column_break_8",
+  "total_allocated_seats",
+  "slot",
+  "available_seats",
+  "section_break_7",
+  "batch"
+ ],
+ "fields": [
+  {
+   "fieldname": "batch_name",
+   "fieldtype": "Data",
+   "label": "Batch Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "slot",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Slot",
+   "options": "AM\nPM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_time",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "From Time",
+   "options": "08\n09\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_time",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "To Time",
+   "options": "08\n09\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_allocated_seats",
+   "fieldtype": "Int",
+   "label": "Total allocated Seats",
+   "reqd": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "series",
+   "options": "Batch:00"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "batch",
+   "fieldtype": "Link",
+   "label": "Batch",
+   "options": "Batch",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "available_seats",
+   "fieldtype": "Int",
+   "label": "Available Seats",
+   "read_only": 1
+  },
+  {
+   "fieldname": "venue",
+   "fieldtype": "Link",
+   "label": "Venue",
+   "options": "Venue",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-08-31 12:47:43.793436",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Term Batch",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "batch_name",
+ "track_changes": 1
+}

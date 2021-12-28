@@ -1,0 +1,71 @@
+{
+ "actions": [],
+ "creation": "2021-10-25 08:51:46.636318",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "child_id",
+  "parent_name",
+  "child_name",
+  "check_in_time",
+  "check_out_time",
+  "duration"
+ ],
+ "fields": [
+  {
+   "fieldname": "child_id",
+   "fieldtype": "Link",
+   "label": "Child ID",
+   "options": "Child Info",
+   "read_only": 1
+  },
+  {
+   "fieldname": "parent_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Parent Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "child_id.child_name",
+   "fieldname": "child_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Child Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "check_in_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Check In Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "check_out_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Check Out Time"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Duration",
+   "in_list_view": 1,
+   "label": "Duration",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-10-25 12:23:36.430489",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Camp Check In Records",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

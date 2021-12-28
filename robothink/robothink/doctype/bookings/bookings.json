@@ -1,0 +1,406 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2021-09-07 12:05:30.392784",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "section_break_2",
+  "parent_id",
+  "parent_name",
+  "c34",
+  "child_name",
+  "child",
+  "c43",
+  "booking_date",
+  "column_break_2",
+  "booking_type",
+  "column_break_4",
+  "process_status",
+  "column_break_6",
+  "status",
+  "token_details",
+  "used_tokens",
+  "column_break_8",
+  "available_tokens",
+  "column_break_10",
+  "total_active_tokens",
+  "c32",
+  "price",
+  "c54",
+  "booking_amount",
+  "column_break_12",
+  "last_payment_date",
+  "course_details_section",
+  "select_course",
+  "c1",
+  "franchise",
+  "franchise_name",
+  "company",
+  "column_break_18",
+  "venue",
+  "venue_name",
+  "c9",
+  "course",
+  "column_break_25",
+  "batches",
+  "column_break_27",
+  "available_seats",
+  "add_child_details_section",
+  "blood_group",
+  "date_of_birth",
+  "gender",
+  "nationality",
+  "any_health_conditions",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "B-0",
+   "read_only": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fetch_from": "select_course.courses",
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Course",
+   "options": "Courses",
+   "read_only": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "default": "Today",
+   "fieldname": "booking_date",
+   "fieldtype": "Date",
+   "label": "Booking Date"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "booking_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Booking Type",
+   "options": "Subscription\nOne Time"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "booking_amount",
+   "fieldtype": "Currency",
+   "label": "Booking Amount"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "add_child_details_section",
+   "fieldtype": "Section Break",
+   "label": "Add Child Details"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Booking Status",
+   "options": "Active\nInactive"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Parent Details"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "parent_id",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Parent",
+   "options": "Parents",
+   "reqd": 1
+  },
+  {
+   "fieldname": "token_details",
+   "fieldtype": "Section Break",
+   "label": "Token Details"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "available_tokens",
+   "fieldtype": "Int",
+   "label": "Available Tokens"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_active_tokens",
+   "fieldtype": "Int",
+   "label": "Total Active Tokens"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "used_tokens",
+   "fieldtype": "Int",
+   "label": "Used Tokens"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "select_course.franchise",
+   "fetch_if_empty": 1,
+   "fieldname": "franchise",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Franchise",
+   "options": "Franchise"
+  },
+  {
+   "fetch_from": "select_course.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "course_details_section",
+   "fieldtype": "Section Break",
+   "label": "Course Details"
+  },
+  {
+   "fetch_from": "select_course.venue",
+   "fieldname": "venue",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Venue",
+   "options": "Venue"
+  },
+  {
+   "fieldname": "child_name",
+   "fieldtype": "Link",
+   "label": "Child Id",
+   "options": "Child Info",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "child_name.gender",
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "child_name.date_of_birth",
+   "fieldname": "date_of_birth",
+   "fieldtype": "Data",
+   "label": "Date of Birth",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "child_name.blood_group",
+   "fieldname": "blood_group",
+   "fieldtype": "Select",
+   "label": "Blood Group",
+   "options": "\nA+\nA-\nB+\nB-\nO+\nO-\nAB+\nAB-",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "child_name.nationality",
+   "fieldname": "nationality",
+   "fieldtype": "Data",
+   "label": "Nationality",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "child_name.any_health_conditions",
+   "fieldname": "any_health_conditions",
+   "fieldtype": "Text Editor",
+   "label": "Any Health Conditions",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "c9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.parent_id",
+   "fetch_from": "parent_id.parent_name",
+   "fieldname": "parent_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Parent Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Bookings",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.child_name",
+   "fetch_from": "child_name.child_name",
+   "fieldname": "child",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Child",
+   "search_index": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "process_status",
+   "fieldtype": "Select",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Process Status",
+   "options": "Request Initiated\nPayment Pending\nCompleted"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.franchise",
+   "fetch_from": "franchise.name1",
+   "fieldname": "franchise_name",
+   "fieldtype": "Data",
+   "label": "Franchise Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.venue",
+   "fetch_from": "venue.venue_name",
+   "fieldname": "venue_name",
+   "fieldtype": "Data",
+   "label": "Venue Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_payment_date",
+   "fieldtype": "Date",
+   "label": "Last Payment Date"
+  },
+  {
+   "fieldname": "batches",
+   "fieldtype": "Link",
+   "label": "Batches",
+   "options": "Batches"
+  },
+  {
+   "fetch_from": "batches.available_seats",
+   "fieldname": "available_seats",
+   "fieldtype": "Int",
+   "label": "Available Seats"
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_course",
+   "fieldtype": "Link",
+   "label": "Select Course",
+   "options": "Manage Courses"
+  },
+  {
+   "fieldname": "c1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price"
+  },
+  {
+   "fieldname": "c34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "c43",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "c32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "c54",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "hide_toolbar": 1,
+ "links": [],
+ "modified": "2021-12-04 00:14:59.605217",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Bookings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "parent_name,child",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "parent_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

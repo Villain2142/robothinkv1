@@ -1,0 +1,370 @@
+{
+ "_liked_by": "[\"Administrator\"]",
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2021-09-01 18:59:46.821560",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "section_break_2",
+  "name1",
+  "c2",
+  "company",
+  "column_break_4",
+  "franchise_type",
+  "column_break_2",
+  "status",
+  "active_weeks_per_year",
+  "description_editor_section",
+  "description",
+  "contact_details_section",
+  "contact_name",
+  "c44",
+  "contact_number",
+  "c33",
+  "contact_mail_id",
+  "c56",
+  "website_url",
+  "address_details_section",
+  "address",
+  "address_line_2",
+  "city",
+  "postcode",
+  "county",
+  "locations_column",
+  "locations",
+  "vat_details_section",
+  "vat_box",
+  "column_break_13",
+  "vat_number",
+  "column_break_15",
+  "accounting_reference",
+  "contract_details_section",
+  "contract_start_date",
+  "column_break_19",
+  "contract_end_date",
+  "column_break_22",
+  "contract_doc",
+  "levies_section",
+  "royalty_inc_vat",
+  "royalty",
+  "column_break_16",
+  "marketing_inc_vat",
+  "marketing",
+  "employee_details_section",
+  "employee",
+  "link_data_section",
+  "item_group_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "NAME",
+   "unique": 1
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "ADDRESS LINE 1"
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "ADDRESS LINE 2"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "CITY"
+  },
+  {
+   "fieldname": "county",
+   "fieldtype": "Data",
+   "label": "COUNTY"
+  },
+  {
+   "fieldname": "postcode",
+   "fieldtype": "Data",
+   "label": "POSTCODE"
+  },
+  {
+   "fieldname": "active_weeks_per_year",
+   "fieldtype": "Data",
+   "label": "ACTIVE WEEKS PER YEAR",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contract_start_date",
+   "fieldtype": "Date",
+   "label": "CONTRACT START DATE"
+  },
+  {
+   "fieldname": "contract_end_date",
+   "fieldtype": "Date",
+   "label": "CONTRACT END DATE"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "levies_section",
+   "fieldtype": "Section Break",
+   "label": "LEVIES"
+  },
+  {
+   "default": "0",
+   "fieldname": "royalty_inc_vat",
+   "fieldtype": "Check",
+   "label": "Royalty inc VAT"
+  },
+  {
+   "fieldname": "royalty",
+   "fieldtype": "Float",
+   "label": "Royalty"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "marketing_inc_vat",
+   "fieldtype": "Check",
+   "label": "Marketing inc VAT"
+  },
+  {
+   "fieldname": "marketing",
+   "fieldtype": "Float",
+   "label": "Marketing"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "vat_details_section",
+   "fieldtype": "Section Break",
+   "label": "VAT Details"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "contract_details_section",
+   "fieldtype": "Section Break",
+   "label": "Contract Details"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "address_details_section",
+   "fieldtype": "Section Break",
+   "label": "Address Details"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "vat_box",
+   "fieldtype": "Check",
+   "label": "VAT REGISTERED"
+  },
+  {
+   "depends_on": "eval:doc.vat_box",
+   "fieldname": "vat_number",
+   "fieldtype": "Data",
+   "label": "VAT NUMBER"
+  },
+  {
+   "depends_on": "eval:doc.vat_box",
+   "fieldname": "accounting_reference",
+   "fieldtype": "Data",
+   "label": "ACCOUNTING REFERENCE"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "locations_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "locations",
+   "fieldtype": "Table",
+   "label": "Locations",
+   "options": "Franchise Locations"
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_doc",
+   "fieldtype": "Attach",
+   "label": "Contract Doc"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Company",
+   "no_copy": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "c2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "franchise_type",
+   "fieldtype": "Select",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Franchise Type",
+   "options": "Mobile Franchise\nLearning Center Franchise"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "link_data_section",
+   "fieldtype": "Section Break",
+   "label": "Link Data"
+  },
+  {
+   "fieldname": "item_group_id",
+   "fieldtype": "Link",
+   "label": "Item Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "FR:00"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nInactive"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "description_editor_section",
+   "fieldtype": "Section Break",
+   "label": "Description Editor"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "employee_details_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Details"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Table",
+   "label": "Employee",
+   "options": "venue contacts table"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "contact_details_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Details"
+  },
+  {
+   "fieldname": "contact_name",
+   "fieldtype": "Data",
+   "label": "Contact Name"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "contact_mail_id",
+   "fieldtype": "Data",
+   "label": "Contact Mail Id"
+  },
+  {
+   "fieldname": "c44",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "c33",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "website_url",
+   "fieldtype": "Data",
+   "label": "Website URL"
+  },
+  {
+   "fieldname": "c56",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Venue",
+   "link_fieldname": "franschise"
+  },
+  {
+   "link_doctype": "Bookings",
+   "link_fieldname": "franchise"
+  }
+ ],
+ "modified": "2021-10-29 21:45:28.082088",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Franchise",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "name1",
+ "track_changes": 1
+}

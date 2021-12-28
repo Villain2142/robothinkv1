@@ -1,0 +1,201 @@
+{
+ "actions": [],
+ "creation": "2021-09-14 16:20:50.290027",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "check_in",
+  "column_break_2",
+  "check_out",
+  "column_break_4",
+  "room",
+  "column_break_6",
+  "instructor",
+  "lesson_details_section",
+  "lesson",
+  "column_break_8",
+  "lesson_difficulty",
+  "column_break_12",
+  "lesson_focus",
+  "upload_images__feedback",
+  "difficulty_level",
+  "column_break_11",
+  "errors",
+  "column_break_13",
+  "engagement_level",
+  "column_break_15",
+  "lesson_completion_speed",
+  "section_break_17",
+  "attach_image_1",
+  "column_break_24",
+  "attach_image_2",
+  "column_break_26",
+  "attach_image_3",
+  "section_break_28",
+  "image_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "check_in",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Check In "
+  },
+  {
+   "fieldname": "check_out",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "check out"
+  },
+  {
+   "fieldname": "lesson",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Lesson",
+   "options": "Lessons"
+  },
+  {
+   "fieldname": "instructor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Instructor",
+   "options": "Instructors"
+  },
+  {
+   "fieldname": "image_description",
+   "fieldtype": "Text Editor",
+   "label": "Image/Description"
+  },
+  {
+   "fetch_from": "lesson.lesson_difficulty",
+   "fieldname": "lesson_difficulty",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Lesson Difficulty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "upload_images__feedback",
+   "fieldtype": "Section Break",
+   "label": "Upload Images / Feedback"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lesson_details_section",
+   "fieldtype": "Section Break",
+   "label": "Lesson Details"
+  },
+  {
+   "fieldname": "difficulty_level",
+   "fieldtype": "Select",
+   "label": "Difficulty Level",
+   "options": "Too Easy\nJust Right\nHard"
+  },
+  {
+   "fieldname": "errors",
+   "fieldtype": "Select",
+   "label": "Errors",
+   "options": "Kit Error\nInstructor Error\nNone"
+  },
+  {
+   "fieldname": "engagement_level",
+   "fieldtype": "Select",
+   "label": "Engagement Level",
+   "options": "Just Built\nBuild & Play\nCreated Own games"
+  },
+  {
+   "fieldname": "lesson_completion_speed",
+   "fieldtype": "Select",
+   "label": "Lesson Completion Speed",
+   "options": "Quick\nAverage\nSlow"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_17",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Room",
+   "options": "Facility"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "lesson.lesson_focus",
+   "fieldname": "lesson_focus",
+   "fieldtype": "Small Text",
+   "label": "Lesson Focus"
+  },
+  {
+   "fieldname": "attach_image_1",
+   "fieldtype": "Attach Image",
+   "label": "Attach Image 1"
+  },
+  {
+   "fieldname": "attach_image_2",
+   "fieldtype": "Attach Image",
+   "label": "Attach Image 2"
+  },
+  {
+   "fieldname": "attach_image_3",
+   "fieldtype": "Attach Image",
+   "label": "Attach Image 3"
+  },
+  {
+   "fieldname": "column_break_24",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_28",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-11-19 01:07:21.765510",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "class records table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

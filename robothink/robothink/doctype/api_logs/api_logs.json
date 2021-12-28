@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2021-10-21 19:48:38.738342",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "title",
+  "api_data",
+  "api_reponse"
+ ],
+ "fields": [
+  {
+   "fieldname": "api_data",
+   "fieldtype": "Long Text",
+   "label": "Api Data"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "Api_Id:"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "api_reponse",
+   "fieldtype": "Long Text",
+   "label": "Api Reponse"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-10-21 19:56:28.527309",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Api Logs",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

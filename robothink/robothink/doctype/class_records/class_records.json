@@ -1,0 +1,321 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2021-09-14 16:07:46.920096",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "child_name",
+  "c63",
+  "child_id",
+  "c33",
+  "status",
+  "section_break_2",
+  "column_break_2",
+  "booking_id",
+  "column_break_4",
+  "courses",
+  "column_break_8",
+  "venue",
+  "token_details_section",
+  "used_tokens",
+  "column_break_10",
+  "available_tokens",
+  "c7",
+  "total_active_tokens",
+  "c6",
+  "start_time",
+  "column_break_22",
+  "end_time",
+  "batch_id",
+  "personal_details_section",
+  "gender",
+  "date_of_birth",
+  "column_break_6",
+  "medical_details_section",
+  "any_health_conditions",
+  "parent_details_section",
+  "parent_id",
+  "column_break_14",
+  "parent_name",
+  "records_section",
+  "date_wise",
+  "upcoming_lessons_section",
+  "lessons"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "Sr:00",
+   "read_only": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "bold": 1,
+   "fieldname": "child_name",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_preview": 1,
+   "label": "Child Id",
+   "options": "Child Info",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "personal_details_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Details"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fetch_from": "child_name.gender",
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender",
+   "read_only": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fetch_from": "child_name.date_of_birth",
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "collapsible": 1,
+   "fieldname": "medical_details_section",
+   "fieldtype": "Section Break",
+   "label": "Medical Details"
+  },
+  {
+   "fetch_from": "child_name.any_health_conditions",
+   "fieldname": "any_health_conditions",
+   "fieldtype": "Text Editor",
+   "label": "Any Health Conditions",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "parent_details_section",
+   "fieldtype": "Section Break",
+   "label": "Parent Details"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fetch_from": "child_name.parent_id",
+   "fieldname": "parent_id",
+   "fieldtype": "Link",
+   "label": "Parent Id",
+   "options": "Parents",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "parent_id.parent_name",
+   "fieldname": "parent_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Parent Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "child_name.booking_id",
+   "fieldname": "booking_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Booking Id",
+   "options": "Bookings"
+  },
+  {
+   "fieldname": "records_section",
+   "fieldtype": "Section Break",
+   "label": "Records"
+  },
+  {
+   "fieldname": "date_wise",
+   "fieldtype": "Table",
+   "label": "Date wise",
+   "options": "class records table"
+  },
+  {
+   "fetch_from": "booking_id.course",
+   "fieldname": "courses",
+   "fieldtype": "Link",
+   "label": "Courses",
+   "options": "Courses",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "token_details_section",
+   "fieldtype": "Section Break",
+   "label": "Token Details"
+  },
+  {
+   "fetch_from": "booking_id.used_tokens",
+   "fieldname": "used_tokens",
+   "fieldtype": "Int",
+   "label": "Used Tokens",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "booking_id.available_tokens",
+   "fieldname": "available_tokens",
+   "fieldtype": "Int",
+   "label": "Available Tokens",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "booking_id.total_active_tokens",
+   "fieldname": "total_active_tokens",
+   "fieldtype": "Int",
+   "label": "Total Active Tokens",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "booking_id.batch_id",
+   "fieldname": "batch_id",
+   "fieldtype": "Link",
+   "label": "Batch Id",
+   "options": "Batch",
+   "read_only": 1
+  },
+  {
+   "fieldname": "c7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "c6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "upcoming_lessons_section",
+   "fieldtype": "Section Break",
+   "label": "Upcoming Lessons",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lessons",
+   "fieldtype": "Table",
+   "label": "Lessons",
+   "options": "Lesson Child Table"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Booking Details"
+  },
+  {
+   "fetch_from": "booking_id.venue",
+   "fieldname": "venue",
+   "fieldtype": "Link",
+   "label": "Venue",
+   "options": "Venue"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "label": "Start Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Datetime",
+   "label": "End Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "c33",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nIn\nOut"
+  },
+  {
+   "fieldname": "c63",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "child_name.child_name",
+   "fieldname": "child_id",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Child Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-10-20 19:03:49.073733",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Class Records",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "child_name,child_id",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "child_id",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

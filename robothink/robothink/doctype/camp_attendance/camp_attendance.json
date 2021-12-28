@@ -1,0 +1,259 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2021-10-25 08:50:28.566978",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "camp_name",
+  "column_break_1",
+  "franchise",
+  "franchise_name",
+  "column_break_2",
+  "company",
+  "venue",
+  "venue_name",
+  "column_break_4",
+  "date",
+  "section_break_4",
+  "parent_id",
+  "parent_name",
+  "parent_image_file",
+  "parent_image",
+  "column_break_6",
+  "child_id",
+  "child_name",
+  "child_image_file",
+  "child_image",
+  "column_break_8",
+  "facility",
+  "instructors",
+  "records_section",
+  "check_in_records",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "CA:"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "company.franchise_id",
+   "fetch_if_empty": 1,
+   "fieldname": "franchise",
+   "fieldtype": "Link",
+   "label": "Franchise",
+   "options": "Franchise"
+  },
+  {
+   "depends_on": "eval:doc.franchise",
+   "fetch_from": "franchise.name1",
+   "fieldname": "franchise_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Franchise Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.franchise",
+   "fieldname": "venue",
+   "fieldtype": "Link",
+   "label": "Venue",
+   "options": "Venue"
+  },
+  {
+   "depends_on": "eval:doc.venue",
+   "fetch_from": "venue.venue_name",
+   "fieldname": "venue_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Venue Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Date",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.venue",
+   "fieldname": "parent_id",
+   "fieldtype": "Link",
+   "label": "Parent Id",
+   "options": "Parents"
+  },
+  {
+   "depends_on": "eval:doc.parent_id",
+   "fetch_from": "parent_id.parent_name",
+   "fieldname": "parent_name",
+   "fieldtype": "Data",
+   "label": "Parent Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.parent_id",
+   "fetch_from": "parent_name.image",
+   "fieldname": "parent_image_file",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Parent Image file"
+  },
+  {
+   "depends_on": "eval:doc.parent_id",
+   "fieldname": "parent_image",
+   "fieldtype": "Image",
+   "label": "Parent Image",
+   "options": "parent_image_file"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.parent_id",
+   "fieldname": "child_id",
+   "fieldtype": "Link",
+   "label": "Child Id",
+   "options": "Child Info"
+  },
+  {
+   "depends_on": "eval:doc.parent_id",
+   "fetch_from": "child_id.child_name",
+   "fieldname": "child_name",
+   "fieldtype": "Data",
+   "label": "Child Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.child_id",
+   "fetch_from": "child_id.image",
+   "fieldname": "child_image_file",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Child Image file"
+  },
+  {
+   "depends_on": "eval:doc.child_id",
+   "fieldname": "child_image",
+   "fieldtype": "Image",
+   "label": "Child Image",
+   "options": "child_image_file"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "facility",
+   "fieldtype": "Link",
+   "label": "Facility",
+   "options": "Facility",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "instructors",
+   "fieldtype": "Link",
+   "label": "Instructors",
+   "options": "Instructors",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "records_section",
+   "fieldtype": "Section Break",
+   "label": "Records"
+  },
+  {
+   "fieldname": "check_in_records",
+   "fieldtype": "Table",
+   "label": "Check In Records",
+   "options": "Camp Check In Records"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Camp Attendance",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Camp Attendance",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "camp_name",
+   "fieldtype": "Data",
+   "label": "Camp Name",
+   "reqd": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2021-10-25 12:38:25.972400",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Camp Attendance",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "franchise_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

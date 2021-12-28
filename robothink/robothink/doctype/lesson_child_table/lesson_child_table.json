@@ -1,0 +1,71 @@
+{
+ "actions": [],
+ "creation": "2021-09-02 16:34:30.288961",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lesson_no",
+  "lesson",
+  "content_type",
+  "lesson_focus",
+  "column_break_2",
+  "description"
+ ],
+ "fields": [
+  {
+   "fetch_from": "lesson.content_type",
+   "fieldname": "content_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Lesson Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lesson",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Lesson",
+   "options": "Lessons",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "lesson.description",
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Description",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "lesson.lesson_focus",
+   "fieldname": "lesson_focus",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Lesson Focus",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lesson_no",
+   "fieldtype": "Select",
+   "label": "Lesson No",
+   "options": "Lesson 1\nLesson 2\nLesson 3\nLesson 4\nLesson 5\nLesson 6\nLesson 7\nLesson 8\nLesson 9\nLesson 10\nLesson 11\nLesson 12\nLesson 13\nLesson 14\nLesson 15\nLesson 16\nLesson 17\nLesson 18\nLesson 19\nLesson 20\nLesson 21\nLesson 22\nLesson 23\nLesson 24\nLesson 25\nLesson 26\nLesson 27\nLesson 28\nLesson 29\nLesson 30\nLesson 31\nLesson 32\nLesson 33\nLesson 34\nLesson 35\nLesson 36\nLesson 37\nLesson 38\nLesson 39\nLesson 40\nLesson 41\nLesson 42\nLesson 43\nLesson 44\nLesson 45\nLesson 46\nLesson 47\nLesson 48\nLesson 49\nLesson 50\nLesson 51\nLesson 52\nLesson 53\nLesson 54\nLesson 55\nLesson 56\nLesson 57\nLesson 58\nLesson 59\nLesson 60\nLesson 61\nLesson 62\nLesson 63\nLesson 64\nLesson 65\nLesson 66\nLesson 67\nLesson 68\nLesson 69\nLesson 70\nLesson 71\nLesson 72\nLesson 73\nLesson 74\nLesson 75\nLesson 76\nLesson 77\nLesson 78\nLesson 79\nLesson 80\nLesson 81\nLesson 82\nLesson 83\nLesson 84\nLesson 85\nLesson 86\nLesson 87\nLesson 88\nLesson 89\nLesson 90"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2021-11-04 17:08:23.415042",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Lesson Child Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,218 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2021-09-06 22:46:23.567463",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "child_name",
+  "c2",
+  "image",
+  "column_break_3",
+  "session_status",
+  "personal_details_section",
+  "gender",
+  "date_of_birth",
+  "column_break_6",
+  "blood_group",
+  "nationality",
+  "column_break_11",
+  "schools",
+  "year",
+  "column_break_16",
+  "class_room",
+  "medical_details_section",
+  "any_health_conditions",
+  "parent_details_section",
+  "parent_id",
+  "column_break_14",
+  "parent_name",
+  "booking_details_section",
+  "booking_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "ch:00"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "bold": 1,
+   "fieldname": "child_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Child Name"
+  },
+  {
+   "fieldname": "personal_details_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Details"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "blood_group",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Blood Group",
+   "options": "\nA+\nA-\nB+\nB-\nO+\nO-\nAB+\nAB-",
+   "read_only": 1
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nationality",
+   "read_only": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "medical_details_section",
+   "fieldtype": "Section Break",
+   "label": "Medical Details"
+  },
+  {
+   "fieldname": "any_health_conditions",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Any Health Conditions"
+  },
+  {
+   "fieldname": "parent_details_section",
+   "fieldtype": "Section Break",
+   "label": "Parent Details"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "parent_id",
+   "fieldtype": "Link",
+   "label": "Parent Id",
+   "options": "Parents"
+  },
+  {
+   "fetch_from": "parent_id.parent_name",
+   "fieldname": "parent_name",
+   "fieldtype": "Data",
+   "label": "Parent Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "booking_details_section",
+   "fieldtype": "Section Break",
+   "label": "Booking Details"
+  },
+  {
+   "fieldname": "booking_id",
+   "fieldtype": "Link",
+   "label": "Booking Id",
+   "options": "Bookings"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "session_status",
+   "fieldtype": "Select",
+   "label": "Session Status",
+   "options": "\nIn\nOut"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "schools",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Schools",
+   "options": "Schools"
+  },
+  {
+   "fieldname": "c2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "year",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Year"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "class_room",
+   "fieldtype": "Data",
+   "label": "Class Room"
+  }
+ ],
+ "image_field": "image",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-12-09 00:25:51.717208",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Child Info",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "child_name",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "child_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

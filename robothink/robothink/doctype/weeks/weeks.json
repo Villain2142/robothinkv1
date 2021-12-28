@@ -1,0 +1,89 @@
+{
+ "actions": [],
+ "autoname": "field:week_name",
+ "creation": "2021-09-06 23:10:54.353741",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "week_name",
+  "column_break_2",
+  "week_number",
+  "column_break_4",
+  "status",
+  "dates_section",
+  "start_date",
+  "column_break_5",
+  "end_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "week_number",
+   "fieldtype": "Int",
+   "label": "Week Number"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Data",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nPassed\nComing"
+  },
+  {
+   "fieldname": "week_name",
+   "fieldtype": "Data",
+   "label": "Week Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "dates_section",
+   "fieldtype": "Section Break",
+   "label": "Dates"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-09-06 23:13:10.797048",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Weeks",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

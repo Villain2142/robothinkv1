@@ -1,0 +1,131 @@
+{
+ "actions": [],
+ "autoname": "field:school_name",
+ "creation": "2021-09-15 18:16:00.594945",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "school_name",
+  "postcode",
+  "telephone",
+  "email",
+  "type",
+  "local_authority",
+  "gender",
+  "religious_affiliation",
+  "education_phase",
+  "academy_trust",
+  "low_age",
+  "high_age",
+  "contact_person_first_name",
+  "contact_person_last_name",
+  "school_strength"
+ ],
+ "fields": [
+  {
+   "fieldname": "school_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "School Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "postcode",
+   "fieldtype": "Data",
+   "label": "Postcode"
+  },
+  {
+   "fieldname": "telephone",
+   "fieldtype": "Int",
+   "label": "TelePhone"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Data",
+   "label": "Type"
+  },
+  {
+   "fieldname": "local_authority",
+   "fieldtype": "Data",
+   "label": "Local Authority"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "religious_affiliation",
+   "fieldtype": "Data",
+   "label": "Religious Affiliation"
+  },
+  {
+   "fieldname": "education_phase",
+   "fieldtype": "Data",
+   "label": "Education Phase"
+  },
+  {
+   "fieldname": "academy_trust",
+   "fieldtype": "Data",
+   "label": "Academy Trust"
+  },
+  {
+   "fieldname": "low_age",
+   "fieldtype": "Data",
+   "label": "Low Age"
+  },
+  {
+   "fieldname": "high_age",
+   "fieldtype": "Data",
+   "label": "High Age"
+  },
+  {
+   "fieldname": "contact_person_first_name",
+   "fieldtype": "Data",
+   "label": "Contact Person First Name"
+  },
+  {
+   "fieldname": "contact_person_last_name",
+   "fieldtype": "Data",
+   "label": "Contact Person Last Name"
+  },
+  {
+   "fieldname": "school_strength",
+   "fieldtype": "Int",
+   "label": "School Strength"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-09-15 18:16:10.056719",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Schools",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,288 @@
+{
+ "actions": [],
+ "allow_events_in_timeline": 1,
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2021-09-21 15:15:09.152826",
+ "doctype": "DocType",
+ "document_type": "Other",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "column_break_2",
+  "registered_date",
+  "column_break_4",
+  "c1",
+  "status",
+  "pending_amt",
+  "contact_details_section",
+  "parent_name",
+  "gender",
+  "column_break_5",
+  "phone",
+  "email",
+  "image",
+  "column_break_15",
+  "address_details_section",
+  "address_line_1",
+  "address_line_2",
+  "column_break_13",
+  "pincode",
+  "county",
+  "column_break_12",
+  "children_details_section",
+  "child_details",
+  "emergency_contact_details_section",
+  "details",
+  "link_data_section",
+  "customer",
+  "customer_contact",
+  "customer_address",
+  "franchise_access_section",
+  "parent_franchise_relation",
+  "column_break_35"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "P.YYYY.-",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "registered_date",
+   "fieldtype": "Date",
+   "label": "Registered Date",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "c1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nLeft"
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "pending_amt",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Pending Amt",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contact_details_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Details"
+  },
+  {
+   "fieldname": "parent_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Parent Name",
+   "reqd": 1,
+   "set_only_once": 1,
+   "unique": 1
+  },
+  {
+   "fetch_from": "employee.gender",
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender",
+   "read_only_depends_on": "employee"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Phone"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Email"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Image"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address_details_section",
+   "fieldtype": "Section Break",
+   "label": "Address Details"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Postcode"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "county",
+   "fieldtype": "Data",
+   "label": "County"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "children_details_section",
+   "fieldtype": "Section Break",
+   "label": "Children Details"
+  },
+  {
+   "fieldname": "child_details",
+   "fieldtype": "Table",
+   "label": "Details",
+   "options": "Child Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "emergency_contact_details_section",
+   "fieldtype": "Section Break",
+   "label": "Emergency Contact Details"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Table",
+   "label": "Details",
+   "options": "Emergency Contact Details"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "link_data_section",
+   "fieldtype": "Section Break",
+   "label": "Link Data"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_contact",
+   "fieldtype": "Data",
+   "label": "Customer Contact",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_address",
+   "fieldtype": "Data",
+   "label": "Customer Address",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "franchise_access_section",
+   "fieldtype": "Section Break",
+   "label": "Franchise Access "
+  },
+  {
+   "fieldname": "parent_franchise_relation",
+   "fieldtype": "Table",
+   "label": "Parent franchise relation",
+   "options": "Parent franchise relation"
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "image_field": "image",
+ "links": [
+  {
+   "link_doctype": "Customer",
+   "link_fieldname": "parent"
+  },
+  {
+   "link_doctype": "Child Info",
+   "link_fieldname": "parent_id"
+  },
+  {
+   "link_doctype": "Bookings",
+   "link_fieldname": "parent_id"
+  }
+ ],
+ "modified": "2021-10-18 12:31:17.398047",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Parents",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "restrict_to_domain": "RoboThink",
+ "search_fields": "parent_name,phone,email",
+ "show_name_in_global_search": 1,
+ "show_preview_popup": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "parent_name"
+}

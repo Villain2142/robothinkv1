@@ -1,0 +1,13 @@
+{
+ "creation": "2021-11-07 11:36:48.148429",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2021-11-07 11:36:48.148429",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Student check",
+ "owner": "Administrator",
+ "source_name": "Student check",
+ "timeseries": 0
+}

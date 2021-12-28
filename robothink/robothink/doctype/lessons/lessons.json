@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "autoname": "field:lesson",
+ "creation": "2021-09-14 16:36:43.718190",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lesson",
+  "lesson_focus",
+  "column_break_2",
+  "content_type",
+  "lesson_difficulty",
+  "section_break_4",
+  "lesson_manual",
+  "description",
+  "courses"
+ ],
+ "fields": [
+  {
+   "fieldname": "lesson",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Lesson",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "content_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Lesson Type"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "lesson_difficulty",
+   "fieldtype": "Select",
+   "label": "Lesson Difficulty",
+   "options": "Level 1\nLevel 2\nLevel 3\nLevel 4\nLevel 5"
+  },
+  {
+   "fieldname": "lesson_focus",
+   "fieldtype": "Small Text",
+   "label": "Lesson Focus"
+  },
+  {
+   "fieldname": "lesson_manual",
+   "fieldtype": "Attach",
+   "label": "Lesson Manual"
+  },
+  {
+   "fieldname": "courses",
+   "fieldtype": "Link",
+   "label": "Courses",
+   "options": "Courses",
+   "read_only": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "links": [],
+ "modified": "2021-10-20 18:55:02.678011",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Lessons",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2021-12-08 23:58:57.152697",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lesson_no",
+  "lesson",
+  "lesson_focus",
+  "lesson_difficulty",
+  "lesson_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "lesson",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Lesson",
+   "options": "Lessons",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "lesson.lesson_focus",
+   "fieldname": "lesson_focus",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Lesson Focus",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "lesson.description",
+   "fieldname": "lesson_description",
+   "fieldtype": "Text Editor",
+   "label": "Lesson Description",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "lesson.lesson_difficulty",
+   "fieldname": "lesson_difficulty",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Lesson Difficulty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lesson_no",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Lesson No",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-12-09 00:15:08.114008",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Lesson Schedule",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

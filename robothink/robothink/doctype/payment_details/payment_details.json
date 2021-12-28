@@ -1,0 +1,41 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2021-12-09 18:40:29.063981",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "price_type",
+  "price"
+ ],
+ "fields": [
+  {
+   "fieldname": "price_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Price Type",
+   "options": "Full Week\nFull Day\nHalf Day\nEarly Drop Off\nEarly Pickup",
+   "search_index": 1
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Price",
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-12-09 18:41:39.750112",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Payment Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

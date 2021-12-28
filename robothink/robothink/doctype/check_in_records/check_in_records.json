@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "creation": "2021-09-15 16:25:04.176684",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "child_id",
+  "child_name",
+  "facility",
+  "instructors",
+  "check_in_time",
+  "check_out_time",
+  "duration",
+  "test"
+ ],
+ "fields": [
+  {
+   "fetch_from": "child_id.child_name",
+   "fieldname": "child_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Child Name",
+   "search_index": 1
+  },
+  {
+   "fieldname": "facility",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Facility",
+   "options": "Facility"
+  },
+  {
+   "fieldname": "instructors",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Instructors",
+   "options": "Instructors",
+   "search_index": 1
+  },
+  {
+   "fieldname": "check_in_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Check In Time"
+  },
+  {
+   "fieldname": "check_out_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Check Out Time"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Duration",
+   "in_list_view": 1,
+   "label": "Duration"
+  },
+  {
+   "fieldname": "test",
+   "fieldtype": "HTML",
+   "label": "test"
+  },
+  {
+   "fieldname": "child_id",
+   "fieldtype": "Link",
+   "label": "Child ID",
+   "options": "Child Info"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-12-09 00:17:04.177423",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Check In Records",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

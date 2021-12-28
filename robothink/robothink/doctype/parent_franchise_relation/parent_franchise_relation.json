@@ -1,0 +1,47 @@
+{
+ "actions": [],
+ "creation": "2021-09-15 17:35:34.616738",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "franchise",
+  "access_type",
+  "added_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "franchise",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Franchise",
+   "options": "Franchise"
+  },
+  {
+   "fieldname": "access_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Access Type",
+   "options": "Read Only\nFull Access"
+  },
+  {
+   "default": "Today",
+   "fieldname": "added_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Added Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-09-15 17:40:52.071554",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Parent franchise relation",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

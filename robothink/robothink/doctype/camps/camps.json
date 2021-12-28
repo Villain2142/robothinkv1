@@ -1,0 +1,229 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{venue}:{theme}-{##}",
+ "creation": "2021-12-09 18:09:32.419040",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "theme",
+  "company",
+  "franchise",
+  "franchise_name",
+  "column_break_2",
+  "venue",
+  "facility",
+  "column_break_4",
+  "start_date",
+  "end_date",
+  "column_break_6",
+  "status",
+  "camp_days_section",
+  "sunday",
+  "monday",
+  "tuseday",
+  "wednesday",
+  "thurseday",
+  "friday",
+  "saturday",
+  "column_break_21",
+  "payment_details",
+  "batch_details_section",
+  "batch_details",
+  "week_schedule_section",
+  "lesson_schedule",
+  "enrolled_child_list_section",
+  "enrolled_students"
+ ],
+ "fields": [
+  {
+   "fieldname": "theme",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Theme",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fetch_from": "company.franchise_id",
+   "fieldname": "franchise",
+   "fieldtype": "Data",
+   "label": "Franchise",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "franchise.name1",
+   "fieldname": "franchise_name",
+   "fieldtype": "Data",
+   "label": "Franchise Name"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "venue",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Venue",
+   "options": "Venue",
+   "reqd": 1
+  },
+  {
+   "fieldname": "facility",
+   "fieldtype": "Link",
+   "label": "Facility",
+   "options": "Facility"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "batch_details_section",
+   "fieldtype": "Section Break",
+   "label": "Batch Details"
+  },
+  {
+   "fieldname": "batch_details",
+   "fieldtype": "Table",
+   "label": "Batch Details",
+   "options": "Batch Details"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "week_schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Schedule"
+  },
+  {
+   "fieldname": "lesson_schedule",
+   "fieldtype": "Table",
+   "label": "Lesson Schedule",
+   "options": "Lesson Schedule"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "enrolled_child_list_section",
+   "fieldtype": "Section Break",
+   "label": "Enrolled Child List"
+  },
+  {
+   "fieldname": "enrolled_students",
+   "fieldtype": "Table",
+   "label": "Enrolled Students",
+   "options": "Enrolled Students"
+  },
+  {
+   "fieldname": "camp_days_section",
+   "fieldtype": "Section Break",
+   "label": "Camp Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "sunday",
+   "fieldtype": "Check",
+   "label": "Sunday"
+  },
+  {
+   "default": "0",
+   "fieldname": "monday",
+   "fieldtype": "Check",
+   "label": "Monday"
+  },
+  {
+   "default": "0",
+   "fieldname": "tuseday",
+   "fieldtype": "Check",
+   "label": "Tuseday"
+  },
+  {
+   "default": "0",
+   "fieldname": "wednesday",
+   "fieldtype": "Check",
+   "label": "Wednesday"
+  },
+  {
+   "default": "0",
+   "fieldname": "thurseday",
+   "fieldtype": "Check",
+   "label": "Thurseday"
+  },
+  {
+   "default": "0",
+   "fieldname": "friday",
+   "fieldtype": "Check",
+   "label": "Friday"
+  },
+  {
+   "default": "0",
+   "fieldname": "saturday",
+   "fieldtype": "Check",
+   "label": "Saturday"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_details",
+   "fieldtype": "Table",
+   "label": "Payment Details",
+   "options": "Payment Details"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-12-09 18:43:31.349609",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Camps",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

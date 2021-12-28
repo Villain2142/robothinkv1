@@ -1,0 +1,102 @@
+{
+ "actions": [],
+ "allow_events_in_timeline": 1,
+ "autoname": "field:course_type",
+ "creation": "2021-09-06 22:52:40.736293",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "course_type",
+  "type_of_event_section",
+  "structured_learning",
+  "workshops",
+  "holiday_camps",
+  "after_school_clubs",
+  "birthday__party",
+  "section_break_8",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Text"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "course_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1,
+   "set_only_once": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "type_of_event_section",
+   "fieldtype": "Section Break",
+   "label": "Type of Event"
+  },
+  {
+   "default": "0",
+   "fieldname": "structured_learning",
+   "fieldtype": "Check",
+   "label": "Structured Learning"
+  },
+  {
+   "default": "0",
+   "fieldname": "workshops",
+   "fieldtype": "Check",
+   "label": "Workshops"
+  },
+  {
+   "default": "0",
+   "fieldname": "holiday_camps",
+   "fieldtype": "Check",
+   "label": "Holiday Camps"
+  },
+  {
+   "default": "0",
+   "fieldname": "after_school_clubs",
+   "fieldtype": "Check",
+   "label": "After School Clubs"
+  },
+  {
+   "default": "0",
+   "fieldname": "birthday__party",
+   "fieldtype": "Check",
+   "label": "Birthday  Party"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-10-23 11:54:18.609983",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Courses Type",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

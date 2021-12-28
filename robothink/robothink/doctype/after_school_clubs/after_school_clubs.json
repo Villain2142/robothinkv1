@@ -1,0 +1,214 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{school}:{theme}-{##}",
+ "creation": "2021-12-08 23:56:04.249953",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "theme",
+  "company",
+  "franchise",
+  "franchise_name",
+  "column_break_2",
+  "school",
+  "class_room",
+  "column_break_4",
+  "total_weeks",
+  "current_week",
+  "column_break_6",
+  "status",
+  "batch_details_section",
+  "batch",
+  "column_break_11",
+  "no_of_seats",
+  "occupied_seats",
+  "column_break_8",
+  "to_time",
+  "from_time",
+  "column_break_10",
+  "available_seats",
+  "week_schedule_section",
+  "lesson_schedule",
+  "enrolled_child_list_section",
+  "enrolled_students"
+ ],
+ "fields": [
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "School ",
+   "options": "Schools",
+   "reqd": 1
+  },
+  {
+   "fieldname": "batch",
+   "fieldtype": "Link",
+   "label": "Batch ",
+   "options": "Batches"
+  },
+  {
+   "fieldname": "current_week",
+   "fieldtype": "Int",
+   "label": "Current Week"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "week_schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Week Schedule"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "batch_details_section",
+   "fieldtype": "Section Break",
+   "label": "Batch Details"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "batch.from_time",
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "label": "Start Time",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "batch.to_time",
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "label": "End Time",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "batch.no_of_seats",
+   "fieldname": "no_of_seats",
+   "fieldtype": "Int",
+   "label": "No of Seats",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "batch.occupied_seats",
+   "fieldname": "occupied_seats",
+   "fieldtype": "Int",
+   "label": "Occupied Seats",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "batch.available_seats",
+   "fieldname": "available_seats",
+   "fieldtype": "Int",
+   "label": "Available Seats",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_weeks",
+   "fieldtype": "Int",
+   "label": "Total Weeks"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "enrolled_child_list_section",
+   "fieldtype": "Section Break",
+   "label": "Enrolled Child List"
+  },
+  {
+   "fieldname": "enrolled_students",
+   "fieldtype": "Table",
+   "label": "Enrolled Students",
+   "options": "Enrolled Students"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive"
+  },
+  {
+   "fieldname": "class_room",
+   "fieldtype": "Data",
+   "label": "Class Room"
+  },
+  {
+   "fieldname": "lesson_schedule",
+   "fieldtype": "Table",
+   "label": "Lesson Schedule",
+   "options": "Lesson Schedule"
+  },
+  {
+   "fieldname": "theme",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Theme",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fetch_from": "company.franchise_id",
+   "fieldname": "franchise",
+   "fieldtype": "Data",
+   "label": "Franchise",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "franchise.name1",
+   "fieldname": "franchise_name",
+   "fieldtype": "Data",
+   "label": "Franchise Name"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-12-09 00:45:11.962572",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "After School Clubs",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

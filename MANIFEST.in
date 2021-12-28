@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include robothink *.css
+recursive-include robothink *.csv
+recursive-include robothink *.html
+recursive-include robothink *.ico
+recursive-include robothink *.js
+recursive-include robothink *.json
+recursive-include robothink *.md
+recursive-include robothink *.png
+recursive-include robothink *.py
+recursive-include robothink *.svg
+recursive-include robothink *.txt
+recursive-exclude robothink *.pyc

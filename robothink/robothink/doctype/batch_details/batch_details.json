@@ -1,0 +1,80 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2021-12-09 00:52:47.786860",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "batches",
+  "no_of_seats",
+  "occupied_seats",
+  "available_seats",
+  "start_time",
+  "end_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "batches",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Batch",
+   "options": "Batches",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "batches.no_of_seats",
+   "fieldname": "no_of_seats",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "No of Seats",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "batches.occupied_seats",
+   "fieldname": "occupied_seats",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Occupied Seats",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "batches.available_seats",
+   "fieldname": "available_seats",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Available Seats",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fetch_from": "batches.from_time",
+   "fieldname": "start_time",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Start Time",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fetch_from": "batches.to_time",
+   "fieldname": "end_time",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Time",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-12-09 00:56:46.922454",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Batch Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
