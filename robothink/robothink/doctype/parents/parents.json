@@ -23,6 +23,9 @@
   "email",
   "image",
   "column_break_15",
+  "current_franchise",
+  "lead_connector_id",
+  "lead_connector_sync",
   "address_details_section",
   "address_line_1",
   "address_line_2",
@@ -241,6 +244,25 @@
   {
    "fieldname": "column_break_35",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "current_franchise",
+   "fieldtype": "Link",
+   "label": "Current Franchise",
+   "options": "Franchise"
+  },
+  {
+   "fieldname": "lead_connector_id",
+   "fieldtype": "Data",
+   "label": "Lead Connector Id",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "lead_connector_sync",
+   "fieldtype": "Check",
+   "label": "Lead Connector Sync",
+   "read_only": 1
   }
  ],
  "image_field": "image",
@@ -258,7 +280,7 @@
    "link_fieldname": "parent_id"
   }
  ],
- "modified": "2021-10-18 12:31:17.398047",
+ "modified": "2022-03-04 20:59:01.982807",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Parents",

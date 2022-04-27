@@ -14,25 +14,39 @@
   "column_break_2",
   "school",
   "class_room",
+  "start_date",
   "column_break_4",
   "total_weeks",
   "current_week",
   "column_break_6",
   "status",
+  "payment_details_section",
+  "pro_rota",
+  "session_price",
+  "c123",
+  "full_term_only",
+  "term_price",
   "batch_details_section",
+  "day",
   "batch",
   "column_break_11",
   "no_of_seats",
+  "b_no_of_seats",
   "occupied_seats",
   "column_break_8",
-  "to_time",
   "from_time",
+  "to_time",
+  "b_from_time",
+  "b_to_time",
   "column_break_10",
   "available_seats",
+  "session_duration",
   "week_schedule_section",
   "lesson_schedule",
+  "waiting_list_details_section",
+  "waiting_list_table",
   "enrolled_child_list_section",
-  "enrolled_students"
+  "enroll_register_table"
  ],
  "fields": [
   {
@@ -40,10 +54,11 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "School ",
-   "options": "Schools",
+   "options": "Venue",
    "reqd": 1
   },
   {
+   "depends_on": "eval: doc.__islocal != 1",
    "fieldname": "batch",
    "fieldtype": "Link",
    "label": "Batch ",
@@ -52,7 +67,8 @@
   {
    "fieldname": "current_week",
    "fieldtype": "Int",
-   "label": "Current Week"
+   "label": "Current Week",
+   "read_only": 1
   },
   {
    "collapsible": 1,
@@ -87,25 +103,22 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "batch.from_time",
+   "depends_on": "eval: doc.__islocal",
    "fieldname": "from_time",
    "fieldtype": "Time",
-   "label": "Start Time",
-   "read_only": 1
+   "label": "From Time"
   },
   {
-   "fetch_from": "batch.to_time",
+   "depends_on": "eval: doc.__islocal",
    "fieldname": "to_time",
    "fieldtype": "Time",
-   "label": "End Time",
-   "read_only": 1
+   "label": "To Time"
   },
   {
-   "fetch_from": "batch.no_of_seats",
+   "depends_on": "eval: doc.__islocal",
    "fieldname": "no_of_seats",
    "fieldtype": "Int",
-   "label": "No of Seats",
-   "read_only": 1
+   "label": "No of Seats"
   },
   {
    "fetch_from": "batch.occupied_seats",
@@ -137,12 +150,6 @@
    "label": "Enrolled Child List"
   },
   {
-   "fieldname": "enrolled_students",
-   "fieldtype": "Table",
-   "label": "Enrolled Students",
-   "options": "Enrolled Students"
-  },
-  {
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
@@ -157,13 +164,14 @@
    "fieldname": "lesson_schedule",
    "fieldtype": "Table",
    "label": "Lesson Schedule",
-   "options": "Lesson Schedule"
+   "options": "Schedule Lessons"
   },
   {
    "fieldname": "theme",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Theme",
+   "options": "Courses",
    "reqd": 1
   },
   {
@@ -184,12 +192,101 @@
    "fieldname": "franchise_name",
    "fieldtype": "Data",
    "label": "Franchise Name"
+  },
+  {
+   "depends_on": "eval: doc.__islocal",
+   "fieldname": "day",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Day",
+   "options": "Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "batch.no_of_seats",
+   "fieldname": "b_no_of_seats",
+   "fieldtype": "Int",
+   "label": "No of Seats",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "batch.to_time",
+   "fieldname": "b_to_time",
+   "fieldtype": "Time",
+   "label": "End Time",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "batch.from_time",
+   "fieldname": "b_from_time",
+   "fieldtype": "Time",
+   "label": "Start Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "depends_on": "eval: doc.__islocal",
+   "fieldname": "session_duration",
+   "fieldtype": "Data",
+   "label": "Session Duration"
+  },
+  {
+   "fieldname": "payment_details_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "pro_rota",
+   "fieldtype": "Check",
+   "label": "Pro Rota"
+  },
+  {
+   "default": "0",
+   "fieldname": "full_term_only",
+   "fieldtype": "Check",
+   "label": "Full Term Only"
+  },
+  {
+   "fieldname": "c123",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "term_price",
+   "fieldtype": "Currency",
+   "label": "Term Price"
+  },
+  {
+   "fieldname": "session_price",
+   "fieldtype": "Currency",
+   "label": "Session Price"
+  },
+  {
+   "fieldname": "enroll_register_table",
+   "fieldtype": "Table",
+   "label": "Enroll Register Table",
+   "options": "Enroll Register Table"
+  },
+  {
+   "fieldname": "waiting_list_details_section",
+   "fieldtype": "Section Break",
+   "label": "Waiting List Details"
+  },
+  {
+   "fieldname": "waiting_list_table",
+   "fieldtype": "Table",
+   "label": "Waiting List Table",
+   "options": "Waiting List Table"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-12-09 00:45:11.962572",
+ "modified": "2022-04-06 12:13:26.508334",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "After School Clubs",

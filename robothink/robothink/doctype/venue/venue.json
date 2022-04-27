@@ -16,18 +16,15 @@
   "company",
   "column_break_5",
   "status",
-  "contract_details_section",
-  "contract_start_date",
-  "column_break_4",
-  "contract_end_date",
-  "column_break_6",
-  "contract_pdf",
-  "contact_details_section",
-  "contacts",
-  "facility_details_section",
-  "facilities",
-  "column_break_17",
-  "holiday_dates",
+  "venue_type_section",
+  "after_school_club",
+  "holiday_camp",
+  "vc1",
+  "structured_learning",
+  "workshops",
+  "vc2",
+  "school_clubs",
+  "birthday_parties",
   "address_details_section",
   "address_line_1",
   "town",
@@ -36,8 +33,20 @@
   "postcode",
   "column_break_14",
   "venue_notes",
+  "contact_details_section",
+  "contacts",
+  "facility_details_section",
+  "facilities",
+  "column_break_17",
+  "holiday_dates",
   "section_break_18",
-  "warehouse"
+  "warehouse",
+  "contract_details_section",
+  "contract_start_date",
+  "column_break_4",
+  "contract_end_date",
+  "column_break_6",
+  "contract_pdf"
  ],
  "fields": [
   {
@@ -91,8 +100,7 @@
   {
    "fieldname": "address_line_2",
    "fieldtype": "Data",
-   "label": "Address line 2",
-   "reqd": 1
+   "label": "Address line 2"
   },
   {
    "fieldname": "town",
@@ -217,12 +225,61 @@
   {
    "fieldname": "c6",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "venue_type_section",
+   "fieldtype": "Section Break",
+   "label": "Venue Type"
+  },
+  {
+   "default": "0",
+   "fieldname": "after_school_club",
+   "fieldtype": "Check",
+   "label": "After School Club"
+  },
+  {
+   "default": "0",
+   "fieldname": "holiday_camp",
+   "fieldtype": "Check",
+   "label": "Holiday Camp"
+  },
+  {
+   "default": "0",
+   "fieldname": "structured_learning",
+   "fieldtype": "Check",
+   "label": "Structured learning"
+  },
+  {
+   "default": "0",
+   "fieldname": "workshops",
+   "fieldtype": "Check",
+   "label": "Workshops"
+  },
+  {
+   "default": "0",
+   "fieldname": "school_clubs",
+   "fieldtype": "Check",
+   "label": "School Clubs"
+  },
+  {
+   "default": "0",
+   "fieldname": "birthday_parties",
+   "fieldtype": "Check",
+   "label": "Birthday Parties"
+  },
+  {
+   "fieldname": "vc1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vc2",
+   "fieldtype": "Column Break"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-10-18 12:49:27.577806",
+ "modified": "2022-02-16 13:51:33.220563",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Venue",

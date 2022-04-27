@@ -30,6 +30,7 @@ class Franchise(Document):
 	def validate(self):
 		self.make_company()
 		self.item_group()
+		self.postcode_validations()
 	def make_company(self):
 		c_name =  str(self.name1)
 		if not frappe.db.exists("Company",self.company):
@@ -60,3 +61,23 @@ class Franchise(Document):
 			item_group_doc = frappe.get_doc("Item Group",self.item_group_id)
 			self.item_group_id = item_group_doc.name
 			frappe.db.commit()
+
+	def postcode_validations(self):
+		if self.locations:
+			new_list = []
+			old_list = []
+			for postcode in self.locations:
+				# if not frappe.db.exists("Postcode",postcode.postcode):
+				# 	n_postcode = frappe.new_doc("Postcode")
+				# 	n_postcode.postcode = postcode.postcode
+				# 	n_postcode.franchise = self.name
+				# 	n_postcode.insert("ignore_permissions")
+				# 	new_list.append(n_postcode.name)
+				n_postcode = frappe.get_doc("Postcode",postcode.postcode)
+				if not n_postcode.franchise:
+					n_postcode.franchise = self.name
+					n_postcode.save("ignore_permissions")
+				if n_postcode.franchise != self.name:
+					old_list.append(n_postcode.name)
+			if len(old_list):
+				frappe.throw(_("Postcode is not valid {0}").format(old_list))

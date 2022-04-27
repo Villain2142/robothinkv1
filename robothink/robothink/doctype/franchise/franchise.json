@@ -1,5 +1,4 @@
 {
- "_liked_by": "[\"Administrator\"]",
  "actions": [],
  "autoname": "naming_series:",
  "creation": "2021-09-01 18:59:46.821560",
@@ -17,8 +16,6 @@
   "column_break_2",
   "status",
   "active_weeks_per_year",
-  "description_editor_section",
-  "description",
   "contact_details_section",
   "contact_name",
   "c44",
@@ -53,10 +50,15 @@
   "column_break_16",
   "marketing_inc_vat",
   "marketing",
+  "integrations_section",
+  "crm_api",
+  "stripe_api",
   "employee_details_section",
   "employee",
   "link_data_section",
-  "item_group_id"
+  "item_group_id",
+  "description_editor_section",
+  "description"
  ],
  "fields": [
   {
@@ -330,6 +332,21 @@
   {
    "fieldname": "c56",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "integrations_section",
+   "fieldtype": "Section Break",
+   "label": "Integrations"
+  },
+  {
+   "fieldname": "crm_api",
+   "fieldtype": "Data",
+   "label": "CRM API"
+  },
+  {
+   "fieldname": "stripe_api",
+   "fieldtype": "Data",
+   "label": "Stripe API"
   }
  ],
  "hide_toolbar": 1,
@@ -344,7 +361,7 @@
    "link_fieldname": "franchise"
   }
  ],
- "modified": "2021-10-29 21:45:28.082088",
+ "modified": "2022-02-28 12:55:48.491496",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Franchise",

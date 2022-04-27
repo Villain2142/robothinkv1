@@ -89,13 +89,14 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Parents": {
+		"validate": "robothink.api_core.insert_parent_ghl",
+	}
+}
+
+#"validate": "electrical_store.corecode.goods_receipt_validations",
+
 
 # Scheduled Tasks
 # ---------------

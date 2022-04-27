@@ -1,0 +1,115 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:doc_id",
+ "creation": "2022-02-02 19:21:13.805637",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "doc_id",
+  "date",
+  "fetch_strip_payments",
+  "column_break_4",
+  "stripe_account",
+  "section_break_4",
+  "stripe_data",
+  "column_break_8",
+  "customer_data",
+  "section_break_10",
+  "child_customer_table",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "doc_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Doc Id",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "fetch_strip_payments",
+   "fieldtype": "Check",
+   "label": "Fetch Strip Payments"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stripe_account",
+   "fieldtype": "Link",
+   "label": "Stripe Account",
+   "options": "Stripe Settings"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "stripe_data",
+   "fieldtype": "Long Text",
+   "label": "Stripe Data"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_data",
+   "fieldtype": "Long Text",
+   "label": "Customer Data"
+  },
+  {
+   "fieldname": "child_customer_table",
+   "fieldtype": "Table",
+   "label": "Child Customer Table",
+   "options": "Child Customer Table"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Stripe Testing",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-02-02 20:56:17.426190",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Stripe Testing",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

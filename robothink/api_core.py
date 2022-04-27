@@ -1,8 +1,116 @@
 from __future__ import unicode_literals
+from cgi import test
 import frappe, base64, hashlib, hmac, json
 from frappe import _
 from datetime import datetime
+import requests
 
+
+@frappe.whitelist(allow_guest=True)
+def insert_parent_ghl(doc,method=None):
+    """
+        Sales Order Cancelation and status change
+    """        
+    url = "https://rest.gohighlevel.com/v1/contacts/"
+    headers = {
+        "Authorization": "Bearer bdcd833f-f0a1-415e-8281-1b08da72bcee",
+        "Content-Type": "application/json" 
+    }
+    if doc.lead_connector_id and doc.lead_connector_sync:
+        try:
+            child_details = ""
+            for child in doc.child_details:
+                child_details += str(child.child_name) + ","
+            url = url + doc.lead_connector_id
+            phone  =str(doc.phone)
+            if phone.startswith('44'):
+                phone  = "+" + phone
+            elif phone.startswith('0'):
+                phone  = "+44" + phone[1:]
+            else:
+                phone  = "+44" + phone
+            payload = json.dumps({
+                "email":str(doc.email),
+                "phone": phone,
+                "name":str(doc.parent_name),
+                "address1":str(doc.address_line_1),
+                "city": str(doc.county),
+                "state":"AL",
+                "country":"UK",
+                "postalCode":str(doc.pincode),
+                "customField":{
+                    "registered_date": str(doc.registered_date),
+                    "p_status": str(doc.status),
+                    "pending_amt": str(doc.pending_amt),
+                    "child_details": child_details
+                }
+            })
+            response = requests.request("PUT", url, headers=headers, data=payload)
+            api_response = frappe.new_doc("Api Logs")
+            api_response.title = "Data Inserted"
+            api_response.api_data = str(response.text) + str(payload)
+            api_response.api_reponse = "200"
+            api_response.flags.ignore_permissions = True
+            api_response.save()
+            frappe.db.commit()
+
+        except Exception as e:
+            api_response = frappe.new_doc("Api Logs")
+            api_response.title = "Data Called"
+            api_response.api_data = str(doc)
+            api_response.api_reponse = str(e)
+            api_response.flags.ignore_permissions = True
+            api_response.save()
+            frappe.db.commit()
+    else:
+        try:
+            child_details = ""
+            for child in doc.child_details:
+                child_details += str(child.child_name) + ","
+            phone  =str(doc.phone)
+            if phone.startswith('44'):
+                phone  = "+" + phone
+            elif phone.startswith('0'):
+                phone  = "+44" + phone[1:]
+            else:
+                phone  = "+44" + phone
+            payload = json.dumps({
+                "email":str(doc.email),
+                "phone": phone,
+                "name":str(doc.parent_name),
+                "address1":str(doc.address_line_1),
+                "city": str(doc.county),
+                "state":"AL",
+                "country":"UK",
+                "postalCode":str(doc.pincode),
+                "customField":{
+                    "registered_date": str(doc.registered_date),
+                    "p_status": str(doc.status),
+                    "pending_amt": str(doc.pending_amt),
+                    "child_details": child_details
+                }
+            })
+            response = requests.request("POST", url, headers=headers, data=payload)
+            r_data = response.json()
+            r_data = r_data["contact"]
+            doc.lead_connector_id = r_data["id"]
+            doc.lead_connector_sync = 1
+            api_response = frappe.new_doc("Api Logs")
+            api_response.title = "Data Inserted"
+            api_response.api_data = str(r_data["id"]) + str(payload)
+            api_response.api_reponse = "200"
+            api_response.flags.ignore_permissions = True
+            api_response.save()
+            frappe.db.commit()
+
+        except Exception as e:
+            api_response = frappe.new_doc("Api Logs")
+            api_response.title = "Data Called"
+            api_response.api_data = str(doc)
+            api_response.api_reponse = str(e)
+            api_response.flags.ignore_permissions = True
+            api_response.save()
+            frappe.db.commit()
 
 @frappe.whitelist(allow_guest=True)
 def api_data(*args):
@@ -21,6 +129,7 @@ def api_data(*args):
         return {"message":"Order Cancelled Successfully"}
 
     except Exception as e:
+        api_response = frappe.new_doc("Api Logs")
         api_response.title = "Data Called"
         api_response.api_data = str(test_data)
         api_response.api_reponse = str(e)
@@ -55,3 +164,89 @@ def check_out(child_id):
     # self.child_name = child_name
     # self.parent_name = parent_name
     # self.save()
+
+
+
+
+
+
+@frappe.whitelist(allow_guest=True)
+def api_class_records_data(*args):
+    """
+        API call for Class record details
+    """
+    test_data = json.loads(frappe.request.data)
+    try:
+        api_response = frappe.new_doc("Api Logs")
+        api_response.title = "Data Inserted"
+        api_response.api_data = str(test_data)
+        api_response.api_reponse = "200"
+        api_response.flags.ignore_permissions = True
+        api_response.save()
+        frappe.db.commit()
+        data = {}
+        child_name  = test_data["child_name"]
+        class_record = frappe.get_doc('Class Records',{"child_name": child_name}, ignore_permissions=True)
+        data["class_record"] = class_record
+
+        return data
+
+    except Exception as e:
+        api_response = frappe.new_doc("Api Logs")
+        api_response.title = "Data Called"
+        api_response.api_data = str(test_data)
+        api_response.api_reponse = str(e)
+        api_response.flags.ignore_permissions = True
+        api_response.save()
+        frappe.db.commit()
+        return e
+
+@frappe.whitelist(allow_guest=True)
+def api_parent_data(*args):
+    """
+        API call for parent details
+    """
+    test_data = json.loads(frappe.request.data)
+
+    try:
+        api_response = frappe.new_doc("Api Logs")
+        api_response.title = "Data Inserted"
+        api_response.api_data = str(test_data)
+        api_response.api_reponse = "200"
+        api_response.flags.ignore_permissions = True
+        api_response.save()
+        frappe.db.commit()
+        data = {}
+        doc_name  = test_data["p_doc"]
+        parent_doc = frappe.get_doc("Parents",doc_name, ignore_permissions=True)
+        data["parent"] = parent_doc
+        childs = frappe.get_list('Child Info', filters={'parent_id': parent_doc.name}, fields=['child_name','gender','date_of_birth','schools','any_health_conditions','booking_id','name'], ignore_permissions=True)
+        no = 0
+        for x in childs:
+            no += 1
+            x["no"] = no
+            if x.booking_id:
+                booking_doc = frappe.get_doc("Bookings",x.booking_id)
+                x["status"] = booking_doc.status
+                x["used_tokens"] = booking_doc.used_tokens
+                x["available_tokens"] = booking_doc.available_tokens
+                x["total_active_tokens"] = booking_doc.total_active_tokens
+                x["franchise"] = booking_doc.franchise
+                x["venue_name"] = booking_doc.venue_name
+                x["batch_id"] = booking_doc.batch_id
+                x["process_status"] = booking_doc.process_status
+                x["course"] = booking_doc.course
+                x["last_payment_date"] = booking_doc.last_payment_date
+                x["booking_amount"] = booking_doc.booking_amount
+        data["childs"] = childs
+        return data
+
+    except Exception as e:
+        api_response = frappe.new_doc("Api Logs")
+        api_response.title = "Data Called"
+        api_response.api_data = str(test_data)
+        api_response.api_reponse = str(e)
+        api_response.flags.ignore_permissions = True
+        api_response.save()
+        frappe.db.commit()
+        return e

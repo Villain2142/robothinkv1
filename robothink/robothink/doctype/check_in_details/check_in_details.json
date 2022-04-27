@@ -19,6 +19,18 @@
   "instructors",
   "column_break_12",
   "date",
+  "batch_details_section",
+  "batch",
+  "no_of_seats",
+  "column_break_17",
+  "status",
+  "occupied_seats",
+  "column_break_20",
+  "day",
+  "available_seats",
+  "c3",
+  "from_time",
+  "to_time",
   "section_break_4",
   "parent_id",
   "parent_name",
@@ -292,13 +304,79 @@
    "fieldtype": "Int",
    "hidden": 1,
    "label": "saved"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "batch_details_section",
+   "fieldtype": "Section Break",
+   "label": "Batch Details"
+  },
+  {
+   "fieldname": "batch",
+   "fieldtype": "Link",
+   "label": "Batch",
+   "options": "Batches"
+  },
+  {
+   "fetch_from": "batch.status",
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
+  },
+  {
+   "fetch_from": "batch.day",
+   "fieldname": "day",
+   "fieldtype": "Data",
+   "label": "Day"
+  },
+  {
+   "fetch_from": "batch.from_time",
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "label": "From Time"
+  },
+  {
+   "fetch_from": "batch.to_time",
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "label": "To Time"
+  },
+  {
+   "fetch_from": "batch.no_of_seats",
+   "fieldname": "no_of_seats",
+   "fieldtype": "Int",
+   "label": "No of Seats"
+  },
+  {
+   "fetch_from": "batch.occupied_seats",
+   "fieldname": "occupied_seats",
+   "fieldtype": "Int",
+   "label": "Occupied Seats"
+  },
+  {
+   "fetch_from": "batch.available_seats",
+   "fieldname": "available_seats",
+   "fieldtype": "Int",
+   "label": "Available Seats"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "c3",
+   "fieldtype": "Column Break"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-11-04 23:03:19.326316",
+ "modified": "2022-03-21 14:05:30.187789",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Check In Details",

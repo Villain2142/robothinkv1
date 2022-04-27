@@ -12,7 +12,12 @@
   "check_in_time",
   "check_out_time",
   "duration",
-  "test"
+  "test",
+  "course",
+  "used_tokens",
+  "available_tokens",
+  "total_active_tokens",
+  "booking_id"
  ],
  "fields": [
   {
@@ -70,12 +75,38 @@
    "fieldtype": "Link",
    "label": "Child ID",
    "options": "Child Info"
+  },
+  {
+   "fieldname": "course",
+   "fieldtype": "Data",
+   "label": "Course"
+  },
+  {
+   "fieldname": "used_tokens",
+   "fieldtype": "Int",
+   "label": "Used Tokens"
+  },
+  {
+   "fieldname": "available_tokens",
+   "fieldtype": "Int",
+   "label": "Available Tokens"
+  },
+  {
+   "fieldname": "total_active_tokens",
+   "fieldtype": "Int",
+   "label": "Total Active Tokens"
+  },
+  {
+   "fieldname": "booking_id",
+   "fieldtype": "Link",
+   "label": "Booking Id",
+   "options": "Bookings"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-12-09 00:17:04.177423",
+ "modified": "2022-03-21 14:13:38.902492",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Check In Records",

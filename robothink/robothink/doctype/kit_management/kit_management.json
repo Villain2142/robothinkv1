@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2022-03-26 07:51:27.522973",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "kit_type",
+  "column_break_3",
+  "last_accessed_by",
+  "column_break_5",
+  "kit_error",
+  "errors_section",
+  "kit_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "Kit:000"
+  },
+  {
+   "fieldname": "kit_type",
+   "fieldtype": "Select",
+   "label": "Kit Type",
+   "options": "Class room Kit\nSingle Kit"
+  },
+  {
+   "fieldname": "last_accessed_by",
+   "fieldtype": "Link",
+   "label": "Last Accessed By",
+   "options": "User"
+  },
+  {
+   "fieldname": "kit_error",
+   "fieldtype": "Text",
+   "label": "Kit Error"
+  },
+  {
+   "fieldname": "errors_section",
+   "fieldtype": "Section Break",
+   "label": "Errors"
+  },
+  {
+   "fieldname": "kit_details",
+   "fieldtype": "Text Editor",
+   "label": "Kit Details"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-03-26 07:55:13.258709",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Kit Management",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

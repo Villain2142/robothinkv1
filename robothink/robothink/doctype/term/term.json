@@ -1,5 +1,4 @@
 {
- "_liked_by": "[\"Administrator\"]",
  "actions": [],
  "autoname": "field:term_name",
  "creation": "2021-08-31 12:17:12.987945",
@@ -9,7 +8,6 @@
  "field_order": [
   "naming_series",
   "term_name",
-  "payment_method",
   "column_break_4",
   "total_no_of_weeks",
   "section_break_3",
@@ -25,12 +23,6 @@
    "fieldtype": "Data",
    "label": "Term Name",
    "unique": 1
-  },
-  {
-   "fieldname": "payment_method",
-   "fieldtype": "Select",
-   "label": "Payment method",
-   "options": "Standard\nSubcriptions"
   },
   {
    "fieldname": "section_break_3",
@@ -79,7 +71,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-09-06 22:57:29.328566",
+ "modified": "2022-04-06 12:16:00.252763",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Term",
