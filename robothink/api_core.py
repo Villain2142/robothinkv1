@@ -166,6 +166,36 @@ def check_out(child_id):
     # self.save()
 
 
+@frappe.whitelist(allow_guest=True)
+def make_payment(**args):
+    # data = frappe._dict(json.loads(data))
+    print(args)
+    data = json.loads(args["data"])
+    doc=  frappe.get_doc("Bookings",args["doc"])
+    new_payment =  frappe.new_doc("RoboThink Payment")
+    new_payment.child = doc.child_name
+    new_payment.parents = doc.parent_id
+    new_payment.transaction_date = data["date"]
+    new_payment.company = doc.company
+    new_payment.program = doc.select_program
+    new_payment.booking_id = doc.name
+    new_payment.plan = doc.plan
+    new_payment.due_amount = doc.due_amount
+    new_payment.mode_of_payment = data["mode_of_payment"]
+    new_payment.paid_amount = data["paid_amount"]
+    new_payment.flags.ignore_permissions = True
+    new_payment.save()
+    new_payment.submit()
+    due= float(doc.due_amount)-float(data["paid_amount"])
+    p_amt = float(doc.paid_amount)+float(data["paid_amount"])
+    frappe.db.set_value("Bookings",doc.name,"due_amount",due)
+    frappe.db.set_value("Bookings",doc.name,"paid_amount",p_amt)
+    frappe.db.set_value("Bookings",doc.name,"last_payment_date",data["date"])
+    if due != 0:
+        frappe.db.set_value("Bookings",doc.name,"process_status","Payment Pending")
+    else:
+        frappe.db.set_value("Bookings",doc.name,"process_status","Completed")
+    return True
 
 
 

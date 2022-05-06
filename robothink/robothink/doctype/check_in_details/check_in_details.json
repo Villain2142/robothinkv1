@@ -19,14 +19,16 @@
   "instructors",
   "column_break_12",
   "date",
-  "batch_details_section",
+  "section_break_15",
+  "day",
+  "column_break_16",
   "batch",
+  "batch_details_section",
   "no_of_seats",
   "column_break_17",
   "status",
   "occupied_seats",
   "column_break_20",
-  "day",
   "available_seats",
   "c3",
   "from_time",
@@ -160,8 +162,7 @@
    "fieldname": "check_in_records",
    "fieldtype": "Table",
    "label": "Check In Records",
-   "options": "Check In Records",
-   "read_only": 1
+   "options": "Check In Records"
   },
   {
    "fieldname": "amended_from",
@@ -226,7 +227,8 @@
    "fieldname": "instructors",
    "fieldtype": "Link",
    "label": "Instructors",
-   "options": "Instructors"
+   "options": "Instructors",
+   "reqd": 1
   },
   {
    "depends_on": "eval:doc.parent_id",
@@ -315,49 +317,57 @@
    "fieldname": "batch",
    "fieldtype": "Link",
    "label": "Batch",
-   "options": "Batches"
+   "options": "Batches",
+   "reqd": 1
   },
   {
    "fetch_from": "batch.status",
    "fieldname": "status",
    "fieldtype": "Data",
-   "label": "Status"
+   "label": "Status",
+   "read_only": 1
   },
   {
-   "fetch_from": "batch.day",
    "fieldname": "day",
-   "fieldtype": "Data",
-   "label": "Day"
+   "fieldtype": "Select",
+   "label": "Day",
+   "options": "Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday",
+   "reqd": 1
   },
   {
    "fetch_from": "batch.from_time",
    "fieldname": "from_time",
    "fieldtype": "Time",
-   "label": "From Time"
+   "label": "From Time",
+   "read_only": 1
   },
   {
    "fetch_from": "batch.to_time",
    "fieldname": "to_time",
    "fieldtype": "Time",
-   "label": "To Time"
+   "label": "To Time",
+   "read_only": 1
   },
   {
    "fetch_from": "batch.no_of_seats",
    "fieldname": "no_of_seats",
    "fieldtype": "Int",
-   "label": "No of Seats"
+   "label": "No of Seats",
+   "read_only": 1
   },
   {
    "fetch_from": "batch.occupied_seats",
    "fieldname": "occupied_seats",
    "fieldtype": "Int",
-   "label": "Occupied Seats"
+   "label": "Occupied Seats",
+   "read_only": 1
   },
   {
    "fetch_from": "batch.available_seats",
    "fieldname": "available_seats",
    "fieldtype": "Int",
-   "label": "Available Seats"
+   "label": "Available Seats",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_17",
@@ -370,13 +380,21 @@
   {
    "fieldname": "c3",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_15",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-03-21 14:05:30.187789",
+ "modified": "2022-05-03 22:39:38.906576",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Check In Details",

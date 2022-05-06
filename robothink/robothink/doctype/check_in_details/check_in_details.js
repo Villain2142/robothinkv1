@@ -101,6 +101,16 @@ const set_query = (frm) => {
 			}
 		}
 	});
+	frm.set_query('batch', () => {
+		if (frm.doc.day) {
+			return {
+				filters: {
+					day: frm.doc.day,
+					company:frm.doc.company
+				}
+			}
+		}
+	});
 };
 
 

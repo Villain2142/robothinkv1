@@ -19,8 +19,12 @@ class Batches(Document):
 	@frappe.whitelist()
 	def validate_code(self):
 		try:
-			if not self.batch_name:
-				pass
-
+			if self.program:
+				program = frappe.get_doc("Robothink Program",self.program)
+				if program.program_schedule:
+					for b in program.program_schedule:
+						if b.batches == self.name:
+							frappe.db.set_value("Program Schedule",b.name,"occupied_seats",self.occupied_seats)
+							frappe.db.set_value("Program Schedule",b.name,"available_seats",self.available_seats)
 		except Exception as e:
 			print (e)

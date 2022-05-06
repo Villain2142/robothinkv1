@@ -29,8 +29,51 @@ from erpnext.accounts.doctype.payment_request.payment_request import make_paymen
 
 
 class CheckInDetails(Document):
+	def before_insert(self):
+		self.get_enrolled_childs()
 	def validate(self):
 		self.validate_code()
+		self.validate_enrolled_childs()
+
+	@frappe.whitelist()
+	def validate_enrolled_childs(self):
+		if len(self.check_in_records)>0:
+			list_child = []
+			for c in self.check_in_records:
+				list_child.append(c.child_id)
+			if self.batch:
+				batch_doc = frappe.get_doc("Batches",self.batch)
+				if batch_doc.enrolled_students:
+					for child in batch_doc.enrolled_students:
+						if child.child not in list_child:
+							self.append("check_in_records", {
+								"child_id": child.child,
+								"facility": self.facility,
+								"instructors": self.instructors
+							})
+		else:
+			if self.batch:
+				batch_doc = frappe.get_doc("Batches",self.batch)
+				if batch_doc.enrolled_students:
+					for child in batch_doc.enrolled_students:
+    						self.append("check_in_records", {
+							"child_id": child.child,
+							"facility": self.facility,
+							"instructors": self.instructors
+						})
+
+	@frappe.whitelist()
+	def get_enrolled_childs(self):
+		if self.batch:
+			batch_doc = frappe.get_doc("Batches",self.batch)
+			if batch_doc.enrolled_students:
+				for child in batch_doc.enrolled_students:
+					self.append("check_in_records", {
+						"child_id": child.child,
+      					"facility": self.facility,
+						"instructors": self.instructors
+					})
+
 	@frappe.whitelist()
 	def validate_code(self):
 		try:
@@ -65,6 +108,92 @@ class CheckInDetails(Document):
 		print("cyess calling",user)
 		return company
 
+
+	@frappe.whitelist()
+	def child_attendance_update(self):
+		if self.active_tokens:
+			booking_id =  frappe.get_doc("Bookings", {"child_name":self.child_id})
+			if booking_id.total_active_tokens:
+				active_tokens =booking_id.total_active_tokens -1
+				used_tokens = booking_id.used_tokens + 1
+				booking_id.db_set("total_active_tokens",active_tokens)
+				booking_id.db_set("used_tokens",used_tokens)
+				self.active_tokens -= 1
+			if frappe.db.exists("Class Records",{"child_name":self.child_id}):
+				if frappe.db.exists("Class Records",{"child_name":self.child_id,"status":"Out"}):
+					class_record = frappe.get_doc("Class Records",{"child_name":self.child_id})
+					class_record.status = "In"
+					class_record.start_time = frappe.utils.get_datetime()
+					class_record.append("date_wise", {
+						"room": self.facility,
+						"instructor": self.instructors,
+						"check_in": frappe.utils.get_datetime(),
+					})
+					class_record.save()
+					self.append("check_in_records", {
+						"child_id": self.child_id,
+						"facility": self.facility,
+						"instructors": self.instructors,
+						"check_in_time": frappe.utils.get_datetime(),
+						"duration" : 1800,
+					})
+					frappe.msgprint("Class Record Created")
+					self.child_id = ""
+					self.parent_id = ""
+					self.booking_id = ""
+					self.active_tokens = ""
+					self.course = ""
+					self.child_name = ""
+					self.parent_name = ""
+					self.save()
+					self.reload()
+					return True
+				else:
+					frappe.msgprint("Class Record already Exists")
+					self.child_id = ""
+					self.parent_id = ""
+					self.booking_id = ""
+					self.active_tokens = ""
+					self.course = ""
+					self.child_name = ""
+					self.parent_name = ""
+					self.save()
+					self.reload()
+					return True
+			else:
+				class_record = frappe.new_doc("Class Records")
+				class_record.child_name = self.child_id
+				class_record.venue = self.venue
+				class_record.status = "In"
+				class_record.start_time = frappe.utils.get_datetime()
+				class_record.append("date_wise", {
+					"room": self.facility,
+					"instructor": self.instructors,
+					"check_in": frappe.utils.get_datetime(),
+				})
+				class_record.save()
+				self.append("check_in_records", {
+					"child_id": self.child_id,
+					"facility": self.facility,
+					"instructors": self.instructors,
+					"check_in_time": frappe.utils.get_datetime(),
+					"duration" : 1800,
+				})
+				frappe.msgprint("Class Record Created")
+				self.child_id = ""
+				self.parent_id = ""
+				self.booking_id = ""
+				self.active_tokens = ""
+				self.course = ""
+				self.child_name = ""
+				self.parent_name = ""
+				self.save()
+				self.reload()
+				return True
+		else:
+			frappe.msgprint("There is no Active Tokens")
+		self.save()
+		self.reload()
 
 	@frappe.whitelist()
 	def child_records_update(self):

@@ -1,7 +1,7 @@
 // Copyright (c) 2022, tarunsairam2142 and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('Parents', {
+frappe.ui.form.on('RoboThink Payment', {
 	// refresh: function(frm) {
 
 	// }

@@ -19,7 +19,8 @@ frappe.ui.form.on('Bookings', {
 		});
 	},
 	refresh: function(frm) {
-		set_query(frm);	
+		set_query(frm);
+		add_custom_buttons(frm);
 	},
 });
 const set_query = (frm) => {
@@ -53,4 +54,83 @@ const set_query = (frm) => {
 			}
 		}
 	});
+	frm.set_query('course', () => {
+		if (frm.doc.select_program) {
+			return {
+				filters: {
+					parent: frm.doc.select_program
+				}
+			}
+		}
+	});
+	frm.set_query('plan', () => {
+		if (frm.doc.select_program) {
+			return {
+				filters: {
+					program: frm.doc.select_program
+				}
+			}
+		}
+	});
+	frm.set_query('batches', () => {
+		if (frm.doc.select_program) {
+			return {
+				filters: {
+					program: frm.doc.select_program
+				}
+			}
+		}
+	});
 };
+
+const add_custom_buttons = (frm) => {
+	if (frm.doc.docstatus === 1) {
+		frm.add_custom_button(__('Make Payment'), function () {
+			let d = new frappe.ui.Dialog({
+				title: 'Enter details',
+				fields: [
+					{
+						label: 'Mode of Payment',
+						fieldname: 'mode_of_payment',
+						fieldtype: 'Select',
+						options: ["Cash", "Stripe", "Child Care Voucher", "Other"],
+						reqd: 1
+					},
+					{
+						label: 'Date',
+						fieldname: 'date',
+						fieldtype: 'Date',
+						reqd: 1
+					},
+					{
+						label: 'Paid Amount',
+						fieldname: 'paid_amount',
+						fieldtype: 'Currency',
+						reqd: 1
+					}
+				],
+				primary_action_label: 'Submit',
+				primary_action: function() {
+					var data = d.get_values();
+					frappe.call({
+						method: 'robothink.api_core.make_payment',
+						args: {
+							data: data,
+							doc: frm.doc.name,
+						},
+						callback: function(data) {
+							if (data.message) {
+								frm.reload_doc();
+							}
+						}
+					});
+					d.hide();
+				},
+			});
+			
+			d.show();
+		}, __('Actions'));
+	}
+
+};
+

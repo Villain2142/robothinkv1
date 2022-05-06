@@ -1,12 +1,12 @@
 {
  "actions": [],
- "autoname": "naming_series:",
+ "allow_events_in_timeline": 1,
+ "autoname": "format:{venue_name}-{postcode}",
  "creation": "2021-08-31 12:09:41.644446",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "naming_series",
   "venue_name",
   "column_break_2",
   "franschise",
@@ -50,11 +50,16 @@
  ],
  "fields": [
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "venue_name",
    "fieldtype": "Data",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Venue Name",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "collapsible": 1,
@@ -201,7 +206,8 @@
    "fieldtype": "Link",
    "label": "Company",
    "options": "Company",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fetch_from": "franschise.name1",
@@ -209,14 +215,6 @@
    "fieldtype": "Data",
    "label": "Franchise Name",
    "read_only": 1
-  },
-  {
-   "default": "Venue:0",
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "hidden": 1,
-   "label": "Series",
-   "options": "Venue:0"
   },
   {
    "fieldname": "c4",
@@ -276,10 +274,9 @@
    "fieldtype": "Column Break"
   }
  ],
- "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-16 13:51:33.220563",
+ "modified": "2022-05-03 18:05:14.265989",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Venue",
@@ -298,6 +295,9 @@
    "write": 1
   }
  ],
+ "search_fields": "venue_name",
+ "show_name_in_global_search": 1,
+ "show_preview_popup": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "venue_name",

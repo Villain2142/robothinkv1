@@ -28,9 +28,12 @@ from erpnext.accounts.doctype.payment_request.payment_request import make_paymen
 
 class Franchise(Document):
 	def validate(self):
-		self.make_company()
+		
 		self.item_group()
 		self.postcode_validations()
+	def after_insert(self):
+		self.make_company()
+  
 	def make_company(self):
 		c_name =  str(self.name1)
 		if not frappe.db.exists("Company",self.company):
@@ -39,14 +42,12 @@ class Franchise(Document):
 			company.default_currency = "GBP"
 			company.country = "United Kingdom"
 			company.abbr = self.name1
-			company.franchises = self.name1
 			company.franchise_id = self.name
 			company.insert()
 			self.company = company.name
 		else:
 			company_doc = frappe.get_doc("Company",self.company)
-			if company_doc.franchises != self.name1:
-				company_doc.franchises = self.name1
+			if company_doc.franchise_id != self.name:
 				company_doc.franchise_id = self.name
 				company_doc.save()
 	def item_group(self):

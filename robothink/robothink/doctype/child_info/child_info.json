@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_import": 1,
- "autoname": "naming_series:",
+ "autoname": "format:{child_name}-{parent_name}",
  "creation": "2021-09-06 22:46:23.567463",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -9,6 +9,7 @@
  "field_order": [
   "naming_series",
   "child_name",
+  "company",
   "c2",
   "image",
   "column_break_3",
@@ -111,14 +112,17 @@
    "fieldname": "parent_id",
    "fieldtype": "Link",
    "label": "Parent Id",
-   "options": "Parents"
+   "options": "Parents",
+   "reqd": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fetch_from": "parent_id.parent_name",
    "fieldname": "parent_name",
    "fieldtype": "Data",
    "label": "Parent Name",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "column_break_14",
@@ -183,12 +187,18 @@
    "fieldname": "class_room",
    "fieldtype": "Data",
    "label": "Class Room"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
   }
  ],
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-12-09 00:25:51.717208",
+ "modified": "2022-05-03 18:06:15.322375",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Child Info",

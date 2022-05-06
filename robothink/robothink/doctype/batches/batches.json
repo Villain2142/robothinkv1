@@ -1,17 +1,18 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{day}-{##}",
+ "autoname": "format:{day}-{program}-{##}",
  "creation": "2021-12-03 23:19:11.094661",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "batch_name",
+  "company",
   "section_break_2",
   "type",
   "c3",
-  "course",
+  "program",
   "c1",
   "venue",
   "c2",
@@ -126,13 +127,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "course",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Course"
-  },
-  {
    "fieldname": "venue",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -164,12 +158,27 @@
    "fieldtype": "Data",
    "label": "Type",
    "read_only": 1
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Program",
+   "options": "Robothink Program",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-06 12:11:43.545908",
+ "modified": "2022-05-03 22:17:57.234931",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Batches",

@@ -21,6 +21,7 @@
    "fieldname": "lesson",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_preview": 1,
    "label": "Lesson",
    "reqd": 1,
    "unique": 1
@@ -71,7 +72,7 @@
  ],
  "hide_toolbar": 1,
  "links": [],
- "modified": "2021-10-20 18:55:02.678011",
+ "modified": "2022-05-02 21:22:34.650970",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Lessons",

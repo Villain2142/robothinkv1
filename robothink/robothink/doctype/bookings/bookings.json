@@ -19,41 +19,43 @@
   "booking_type",
   "column_break_4",
   "process_status",
+  "paid_amount",
   "column_break_6",
   "status",
-  "token_details",
-  "used_tokens",
-  "column_break_8",
-  "available_tokens",
-  "column_break_10",
-  "total_active_tokens",
-  "c32",
-  "price",
-  "c54",
-  "booking_amount",
-  "column_break_12",
-  "last_payment_date",
+  "due_amount",
   "course_details_section",
-  "select_course",
-  "c1",
-  "franchise",
-  "franchise_name",
-  "company",
-  "column_break_18",
-  "venue",
-  "venue_name",
-  "c9",
+  "select_program",
   "course",
+  "c9",
+  "venue",
+  "company",
+  "franchise",
+  "column_break_18",
+  "plan",
+  "amount",
   "column_break_25",
   "batches",
-  "column_break_27",
   "available_seats",
+  "token_details",
+  "available_tokens",
+  "column_break_8",
+  "used_tokens",
+  "column_break_10",
+  "total_active_tokens",
+  "c54",
+  "column_break_12",
+  "last_payment_date",
+  "transaction_details_section",
+  "components",
+  "income_account",
+  "receivable_account",
   "add_child_details_section",
   "blood_group",
   "date_of_birth",
   "gender",
   "nationality",
   "any_health_conditions",
+  "fee_id",
   "amended_from"
  ],
  "fields": [
@@ -62,19 +64,6 @@
    "fieldtype": "Select",
    "label": "Series",
    "options": "B-0",
-   "read_only": 1
-  },
-  {
-   "allow_in_quick_entry": 1,
-   "fetch_from": "select_course.courses",
-   "fieldname": "course",
-   "fieldtype": "Link",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "in_preview": 1,
-   "in_standard_filter": 1,
-   "label": "Course",
-   "options": "Courses",
    "read_only": 1
   },
   {
@@ -91,12 +80,6 @@
    "in_standard_filter": 1,
    "label": "Booking Type",
    "options": "Subscription\nOne Time"
-  },
-  {
-   "allow_in_quick_entry": 1,
-   "fieldname": "booking_amount",
-   "fieldtype": "Currency",
-   "label": "Booking Amount"
   },
   {
    "collapsible": 1,
@@ -129,6 +112,8 @@
   },
   {
    "allow_in_quick_entry": 1,
+   "fetch_from": "child_name.parent_id",
+   "fetch_if_empty": 1,
    "fieldname": "parent_id",
    "fieldtype": "Link",
    "in_global_search": 1,
@@ -145,6 +130,7 @@
   },
   {
    "allow_on_submit": 1,
+   "fetch_from": "plan.tokens",
    "fieldname": "available_tokens",
    "fieldtype": "Int",
    "label": "Available Tokens"
@@ -174,16 +160,16 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "select_course.franchise",
+   "fetch_from": "select_program.franchise",
    "fetch_if_empty": 1,
    "fieldname": "franchise",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Franchise",
-   "options": "Franchise"
+   "options": "Franchise",
+   "read_only": 1
   },
   {
-   "fetch_from": "select_course.company",
+   "fetch_from": "select_program.company",
    "fieldname": "company",
    "fieldtype": "Link",
    "hidden": 1,
@@ -197,12 +183,12 @@
    "label": "Course Details"
   },
   {
-   "fetch_from": "select_course.venue",
+   "fetch_from": "select_program.venue",
    "fieldname": "venue",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Venue",
-   "options": "Venue"
+   "options": "Venue",
+   "read_only": 1
   },
   {
    "fieldname": "child_name",
@@ -268,15 +254,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Bookings",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
    "depends_on": "eval:doc.child_name",
    "fetch_from": "child_name.child_name",
    "fieldname": "child",
@@ -285,6 +262,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Child",
+   "read_only": 1,
    "search_index": 1
   },
   {
@@ -302,22 +280,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "depends_on": "eval:doc.franchise",
-   "fetch_from": "franchise.name1",
-   "fieldname": "franchise_name",
-   "fieldtype": "Data",
-   "label": "Franchise Name",
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:doc.venue",
-   "fetch_from": "venue.venue_name",
-   "fieldname": "venue_name",
-   "fieldtype": "Data",
-   "label": "Venue Name",
-   "read_only": 1
-  },
-  {
    "fieldname": "last_payment_date",
    "fieldtype": "Date",
    "label": "Last Payment Date"
@@ -332,30 +294,12 @@
    "fetch_from": "batches.available_seats",
    "fieldname": "available_seats",
    "fieldtype": "Int",
+   "ignore_user_permissions": 1,
    "label": "Available Seats"
-  },
-  {
-   "fieldname": "column_break_27",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "column_break_25",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "select_course",
-   "fieldtype": "Link",
-   "label": "Select Course",
-   "options": "Manage Courses"
-  },
-  {
-   "fieldname": "c1",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "price",
-   "fieldtype": "Currency",
-   "label": "Price"
   },
   {
    "fieldname": "c34",
@@ -366,23 +310,99 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "c32",
+   "fieldname": "c54",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "c54",
-   "fieldtype": "Column Break"
+   "fieldname": "select_program",
+   "fieldtype": "Link",
+   "label": "Select Program",
+   "options": "Robothink Program"
+  },
+  {
+   "fieldname": "plan",
+   "fieldtype": "Link",
+   "label": "Plan",
+   "options": "Robothink Fee Plan"
+  },
+  {
+   "fetch_from": "plan.amount",
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "transaction_details_section",
+   "fieldtype": "Section Break",
+   "label": "Transaction Details"
+  },
+  {
+   "fieldname": "income_account",
+   "fieldtype": "Link",
+   "label": "Income Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "receivable_account",
+   "fieldtype": "Link",
+   "label": "Receivable Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "components",
+   "fieldtype": "Table",
+   "label": "Components",
+   "options": "Fee Component"
+  },
+  {
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "label": "Select Course",
+   "options": "Robothink Program Course"
+  },
+  {
+   "fieldname": "fee_id",
+   "fieldtype": "Link",
+   "label": "Fee ID",
+   "no_copy": 1,
+   "options": "Fees",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Bookings",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "due_amount",
+   "fieldtype": "Currency",
+   "label": "Due Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount",
+   "read_only": 1
   }
  ],
  "hide_toolbar": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2021-12-04 00:14:59.605217",
+ "modified": "2022-05-03 21:57:21.409292",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Bookings",
  "owner": "Administrator",
  "permissions": [
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -393,9 +413,27 @@
    "role": "Administrator",
    "select": 1,
    "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "search_fields": "parent_name,child",
  "sort_field": "modified",
  "sort_order": "DESC",

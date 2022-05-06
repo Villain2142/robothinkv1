@@ -38,6 +38,7 @@
    "unique": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "age_from",
    "fieldtype": "Int",
    "label": "Age from"
@@ -47,6 +48,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "age_to",
    "fieldtype": "Int",
    "label": "Age to"
@@ -99,26 +101,33 @@
   {
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Status",
-   "options": "Active\nInactive"
+   "options": "Active\nInactive",
+   "search_index": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "default": "0",
    "fieldname": "learning_center",
    "fieldtype": "Check",
+   "in_preview": 1,
    "label": "Learning Center"
   },
   {
+   "allow_in_quick_entry": 1,
    "default": "0",
    "fieldname": "mobile_unit",
    "fieldtype": "Check",
+   "in_preview": 1,
    "label": "Mobile Unit"
   }
  ],
- "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-10-20 18:54:49.241049",
+ "modified": "2022-05-03 15:48:28.790943",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Courses",
@@ -137,6 +146,7 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "course_name",

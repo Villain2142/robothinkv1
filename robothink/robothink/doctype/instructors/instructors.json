@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_import": 1,
- "autoname": "field:instructor_name",
+ "autoname": "format:{instructor_name}-{phone}",
  "creation": "2021-09-06 08:55:05.023487",
  "doctype": "DocType",
  "document_type": "Other",
@@ -9,6 +9,7 @@
  "field_order": [
   "instructor_name",
   "column_break_2",
+  "company",
   "column_break_3",
   "status",
   "personal_details_section",
@@ -69,7 +70,8 @@
   {
    "fieldname": "phone",
    "fieldtype": "Data",
-   "label": "Phone"
+   "label": "Phone",
+   "reqd": 1
   },
   {
    "fetch_from": "employee.designation",
@@ -207,11 +209,17 @@
   {
    "fieldname": "column_break_3",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
   }
  ],
  "image_field": "image",
  "links": [],
- "modified": "2021-10-10 14:40:01.058068",
+ "modified": "2022-05-03 18:06:44.046299",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Instructors",

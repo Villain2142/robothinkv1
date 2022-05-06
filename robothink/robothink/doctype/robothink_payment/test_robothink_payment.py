@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestParents(unittest.TestCase):
+class TestRoboThinkPayment(unittest.TestCase):
 	pass
