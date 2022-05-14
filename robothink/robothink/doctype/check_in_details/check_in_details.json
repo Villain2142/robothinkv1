@@ -16,10 +16,11 @@
   "venue_name",
   "column_break_4",
   "facility",
-  "instructors",
   "column_break_12",
   "date",
   "section_break_15",
+  "program",
+  "column_break_15",
   "day",
   "column_break_16",
   "batch",
@@ -75,10 +76,8 @@
   {
    "fieldname": "company",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Company",
-   "options": "Company",
-   "read_only": 1
+   "options": "Company"
   },
   {
    "fieldname": "section_break_4",
@@ -107,7 +106,6 @@
   },
   {
    "depends_on": "eval:doc.booking_id",
-   "fetch_from": "booking_id.course",
    "fieldname": "course",
    "fieldtype": "Data",
    "label": "Course",
@@ -222,13 +220,6 @@
    "fieldtype": "Link",
    "label": "Facility",
    "options": "Facility"
-  },
-  {
-   "fieldname": "instructors",
-   "fieldtype": "Link",
-   "label": "Instructors",
-   "options": "Instructors",
-   "reqd": 1
   },
   {
    "depends_on": "eval:doc.parent_id",
@@ -388,13 +379,24 @@
   {
    "fieldname": "column_break_16",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "batch.program",
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "options": "Robothink Program"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-05-03 22:39:38.906576",
+ "modified": "2022-05-13 14:07:06.922390",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Check In Details",

@@ -186,8 +186,8 @@ def make_payment(**args):
     new_payment.flags.ignore_permissions = True
     new_payment.save()
     new_payment.submit()
-    due= float(doc.due_amount)-float(data["paid_amount"])
     p_amt = float(doc.paid_amount)+float(data["paid_amount"])
+    due= float(doc.amount)-p_amt
     frappe.db.set_value("Bookings",doc.name,"due_amount",due)
     frappe.db.set_value("Bookings",doc.name,"paid_amount",p_amt)
     frappe.db.set_value("Bookings",doc.name,"last_payment_date",data["date"])
@@ -195,6 +195,31 @@ def make_payment(**args):
         frappe.db.set_value("Bookings",doc.name,"process_status","Payment Pending")
     else:
         frappe.db.set_value("Bookings",doc.name,"process_status","Completed")
+    if doc.parent_id:
+        p_doc = frappe.get_doc("Parents",doc.parent_id)
+        p_doc.append("booking_transaction",{
+            "booking_id": doc.name,
+            "transaction_date" : data["date"],
+            "mode_of_payment" :data["mode_of_payment"],
+            "paid_amount" : data["paid_amount"]
+        })
+        p_doc.flags.ignore_permissions = True
+        p_doc.save()
+        p_doc.reload()
+    if doc.select_program:
+        rp_doc = frappe.get_doc("Robothink Program",doc.select_program)
+        if rp_doc.total_amount_received:
+            rp_doc.total_amount_received += data["paid_amount"]
+        rp_doc.append("program_transactions",{
+            "child": doc.child_name,
+            "booking_id": doc.name,
+            "transaction_date" : data["date"],
+            "mode_of_payment" :data["mode_of_payment"],
+            "paid_amount" : data["paid_amount"]
+        })
+        rp_doc.flags.ignore_permissions = True
+        rp_doc.save()
+        rp_doc.reload()
     return True
 
 

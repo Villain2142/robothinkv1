@@ -12,9 +12,10 @@ class RobothinkProgram(Document):
 
   
 	def validate(self):
-		self.validate_program()
-		# self.validate_plans()
-		self.validate_batches()
+		if not self.is_new():
+			self.validate_program()
+			# self.validate_plans()
+			self.validate_batches()
 
 	def on_trash(self):
 		self.delete_program()
@@ -32,35 +33,40 @@ class RobothinkProgram(Document):
 					})
 				new_program.flags.ignore_permissions = True
 				new_program.insert()
+			if self.courses:
+				for c in self.courses:
+					self.main_course = c.courses
 		except Exception as e:
 			frappe.throw(e)
 
 	def validate_program(self):
-		if not self.is_new():
-			try:	
-				if not frappe.db.exists("Program",self.name):
-					new_program = frappe.new_doc("Program")
-					new_program.program_name = self.name
-					for c in self.courses:
-							new_program.append("courses",{
-							"course": c.courses
-						})
-					new_program.flags.ignore_permissions = True
-					new_program.insert()
-				else:
-					del_program = frappe.get_doc("Program",self.name)
-					del_program.flags.ignore_permissions = True
-					del_program.delete()
-					new_program = frappe.new_doc("Program")
-					new_program.program_name = self.name
-					for c in self.courses:
-							new_program.append("courses",{
-							"course": c.courses
-						})
-					new_program.flags.ignore_permissions = True
-					new_program.insert()
-			except Exception as e:
-				frappe.throw(e)
+		try:	
+			if not frappe.db.exists("Program",self.name):
+				new_program = frappe.new_doc("Program")
+				new_program.program_name = self.name
+				for c in self.courses:
+						new_program.append("courses",{
+						"course": c.courses
+					})
+				new_program.flags.ignore_permissions = True
+				new_program.insert()
+			else:
+				del_program = frappe.get_doc("Program",self.name)
+				del_program.flags.ignore_permissions = True
+				del_program.delete()
+				new_program = frappe.new_doc("Program")
+				new_program.program_name = self.name
+				for c in self.courses:
+						new_program.append("courses",{
+						"course": c.courses
+					})
+				new_program.flags.ignore_permissions = True
+				new_program.insert()
+			if self.courses:
+				for c in self.courses:
+					self.main_course = c.courses
+		except Exception as e:
+			frappe.throw(e)
 
 	def delete_program(self):
 		try:	

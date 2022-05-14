@@ -1,0 +1,353 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2022-05-13 11:55:32.953131",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "column_break_1",
+  "franchise",
+  "franchise_name",
+  "column_break_2",
+  "company",
+  "venue",
+  "venue_name",
+  "column_break_4",
+  "facility",
+  "column_break_12",
+  "date",
+  "section_break_15",
+  "day",
+  "column_break_16",
+  "batch",
+  "batch_details_section",
+  "no_of_seats",
+  "column_break_17",
+  "status",
+  "occupied_seats",
+  "column_break_20",
+  "available_seats",
+  "c3",
+  "from_time",
+  "to_time",
+  "section_break_4",
+  "parent_id",
+  "column_break_6",
+  "child_id",
+  "column_break_8",
+  "booking_id",
+  "section_break_8",
+  "program",
+  "column_break_21",
+  "used_tokens",
+  "column_break_11",
+  "available_tokens",
+  "column_break_14",
+  "active_tokens",
+  "column_break_23",
+  "records_section",
+  "check_in_records",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "Record:00"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "company.franchise_id",
+   "fetch_if_empty": 1,
+   "fieldname": "franchise",
+   "fieldtype": "Link",
+   "label": "Franchise",
+   "options": "Franchise"
+  },
+  {
+   "depends_on": "eval:doc.franchise",
+   "fetch_from": "franchise.name1",
+   "fieldname": "franchise_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Franchise Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "depends_on": "eval:doc.franchise",
+   "fieldname": "venue",
+   "fieldtype": "Link",
+   "label": "Venue",
+   "options": "Venue"
+  },
+  {
+   "depends_on": "eval:doc.venue",
+   "fetch_from": "venue.venue_name",
+   "fieldname": "venue_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Venue Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "facility",
+   "fieldtype": "Link",
+   "label": "Facility",
+   "options": "Facility"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Date",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "section_break_15",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "day",
+   "fieldtype": "Select",
+   "label": "Day",
+   "options": "Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "batch",
+   "fieldtype": "Link",
+   "label": "Batch",
+   "options": "Batches",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "batch_details_section",
+   "fieldtype": "Section Break",
+   "label": "Batch Details"
+  },
+  {
+   "fetch_from": "batch.no_of_seats",
+   "fieldname": "no_of_seats",
+   "fieldtype": "Int",
+   "label": "No of Seats",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "batch.status",
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "batch.occupied_seats",
+   "fieldname": "occupied_seats",
+   "fieldtype": "Int",
+   "label": "Occupied Seats",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "batch.available_seats",
+   "fieldname": "available_seats",
+   "fieldtype": "Int",
+   "label": "Available Seats",
+   "read_only": 1
+  },
+  {
+   "fieldname": "c3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "batch.from_time",
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "label": "From Time",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "batch.to_time",
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "label": "To Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.child_id",
+   "fetch_from": "child_id.booking_id",
+   "fieldname": "booking_id",
+   "fieldtype": "Link",
+   "label": "Booking Id",
+   "options": "Bookings",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.booking_id",
+   "fetch_from": "booking_id.select_program",
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "options": "Robothink Program",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.booking_id",
+   "fetch_from": "booking_id.used_tokens",
+   "fieldname": "used_tokens",
+   "fieldtype": "Int",
+   "label": "Used Tokens",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.booking_id",
+   "fetch_from": "booking_id.available_tokens",
+   "fieldname": "available_tokens",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Available Tokens",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.booking_id",
+   "fetch_from": "booking_id.total_active_tokens",
+   "fieldname": "active_tokens",
+   "fieldtype": "Int",
+   "label": "Active Tokens",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "records_section",
+   "fieldtype": "Section Break",
+   "label": "Records"
+  },
+  {
+   "fieldname": "check_in_records",
+   "fieldtype": "Table",
+   "label": "Check In Records",
+   "options": "Check In Records",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Program Attendance",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.saved",
+   "fieldname": "parent_id",
+   "fieldtype": "Link",
+   "label": "Parent",
+   "options": "Parents"
+  },
+  {
+   "depends_on": "eval:doc.parent_id",
+   "fieldname": "child_id",
+   "fieldtype": "Link",
+   "label": "Child",
+   "options": "Child Info"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-05-13 12:04:59.123506",
+ "modified_by": "Administrator",
+ "module": "Robothink",
+ "name": "Program Attendance",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "franchise_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

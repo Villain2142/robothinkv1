@@ -38,7 +38,9 @@
   "customer_contact",
   "customer_address",
   "franchise_access_section",
-  "parent_franchise_relation"
+  "parent_franchise_relation",
+  "transactions_history_section",
+  "booking_transaction"
  ],
  "fields": [
   {
@@ -243,11 +245,24 @@
    "fieldtype": "Table",
    "label": "Parent franchise relation",
    "options": "Parent franchise relation"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "transactions_history_section",
+   "fieldtype": "Section Break",
+   "label": "Transactions History "
+  },
+  {
+   "fieldname": "booking_transaction",
+   "fieldtype": "Table",
+   "label": "Booking Transaction",
+   "options": "Booking Transaction",
+   "read_only": 1
   }
  ],
  "image_field": "image",
  "links": [],
- "modified": "2022-05-02 23:24:35.229431",
+ "modified": "2022-05-11 17:41:26.963480",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Parents",

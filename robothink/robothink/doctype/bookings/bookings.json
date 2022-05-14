@@ -9,10 +9,8 @@
   "naming_series",
   "section_break_2",
   "parent_id",
-  "parent_name",
   "c34",
   "child_name",
-  "child",
   "c43",
   "booking_date",
   "column_break_2",
@@ -25,7 +23,6 @@
   "due_amount",
   "course_details_section",
   "select_program",
-  "course",
   "c9",
   "venue",
   "company",
@@ -112,8 +109,6 @@
   },
   {
    "allow_in_quick_entry": 1,
-   "fetch_from": "child_name.parent_id",
-   "fetch_if_empty": 1,
    "fieldname": "parent_id",
    "fieldtype": "Link",
    "in_global_search": 1,
@@ -193,7 +188,7 @@
   {
    "fieldname": "child_name",
    "fieldtype": "Link",
-   "label": "Child Id",
+   "label": "Child",
    "options": "Child Info",
    "reqd": 1
   },
@@ -241,29 +236,6 @@
   {
    "fieldname": "c9",
    "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:doc.parent_id",
-   "fetch_from": "parent_id.parent_name",
-   "fieldname": "parent_name",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_preview": 1,
-   "in_standard_filter": 1,
-   "label": "Parent Name",
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:doc.child_name",
-   "fetch_from": "child_name.child_name",
-   "fieldname": "child",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Child",
-   "read_only": 1,
-   "search_index": 1
   },
   {
    "allow_in_quick_entry": 1,
@@ -314,10 +286,12 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "select_program",
    "fieldtype": "Link",
    "label": "Select Program",
-   "options": "Robothink Program"
+   "options": "Robothink Program",
+   "reqd": 1
   },
   {
    "fieldname": "plan",
@@ -355,12 +329,6 @@
    "options": "Fee Component"
   },
   {
-   "fieldname": "course",
-   "fieldtype": "Link",
-   "label": "Select Course",
-   "options": "Robothink Program Course"
-  },
-  {
    "fieldname": "fee_id",
    "fieldtype": "Link",
    "label": "Fee ID",
@@ -391,10 +359,9 @@
    "read_only": 1
   }
  ],
- "hide_toolbar": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-05-03 21:57:21.409292",
+ "modified": "2022-05-11 19:29:14.536182",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Bookings",
@@ -434,10 +401,10 @@
   }
  ],
  "quick_entry": 1,
- "search_fields": "parent_name,child",
+ "search_fields": "parent_id,child_name",
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "parent_name",
+ "title_field": "child_name",
  "track_changes": 1,
  "track_seen": 1,
  "track_views": 1

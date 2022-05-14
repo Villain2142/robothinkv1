@@ -169,6 +169,7 @@
    "options": "venue contacts table"
   },
   {
+   "depends_on": "eval:doc.saved",
    "fieldname": "facilities",
    "fieldtype": "Table",
    "label": "Facilities",
@@ -276,7 +277,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-03 18:05:14.265989",
+ "modified": "2022-05-13 11:59:12.701719",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Venue",

@@ -113,7 +113,7 @@ const add_custom_buttons = (frm) => {
 				primary_action: function() {
 					var data = d.get_values();
 					frappe.call({
-						method: 'robothink.api_core.make_payment',
+						method: "robothink.api_core.make_payment",
 						args: {
 							data: data,
 							doc: frm.doc.name,

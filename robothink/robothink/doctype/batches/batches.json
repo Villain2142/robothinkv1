@@ -46,27 +46,46 @@
   {
    "fieldname": "from_time",
    "fieldtype": "Time",
-   "label": "From Time"
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "From Time",
+   "search_index": 1
   },
   {
    "fieldname": "to_time",
    "fieldtype": "Time",
-   "label": "To Time"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "To Time",
+   "search_index": 1
   },
   {
    "fieldname": "no_of_seats",
    "fieldtype": "Int",
-   "label": "No of Seats"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "No of Seats",
+   "search_index": 1
   },
   {
    "fieldname": "occupied_seats",
    "fieldtype": "Int",
-   "label": "Occupied Seats"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Occupied Seats",
+   "search_index": 1
   },
   {
    "fieldname": "available_seats",
    "fieldtype": "Int",
-   "label": "Available Seats"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Available Seats",
+   "search_index": 1
   },
   {
    "fieldname": "batch_name",
@@ -109,8 +128,7 @@
    "fieldname": "enrolled_students",
    "fieldtype": "Table",
    "label": "Enrolled Students",
-   "options": "Enrolled Students",
-   "read_only": 1
+   "options": "Enrolled Students"
   },
   {
    "fieldname": "section_break_16",
@@ -178,7 +196,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-03 22:17:57.234931",
+ "modified": "2022-05-09 12:47:21.766213",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Batches",

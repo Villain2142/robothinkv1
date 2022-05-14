@@ -16,6 +16,7 @@
   "column_break_2",
   "booking_id",
   "column_break_4",
+  "robothink_program",
   "courses",
   "column_break_8",
   "venue",
@@ -161,7 +162,7 @@
    "options": "class records table"
   },
   {
-   "fetch_from": "booking_id.course",
+   "fetch_from": "robothink_program.main_course",
    "fieldname": "courses",
    "fieldtype": "Link",
    "label": "Courses",
@@ -196,11 +197,11 @@
    "read_only": 1
   },
   {
-   "fetch_from": "booking_id.batch_id",
+   "fetch_from": "booking_id.batches",
    "fieldname": "batch_id",
    "fieldtype": "Link",
    "label": "Batch Id",
-   "options": "Batch",
+   "options": "Batches",
    "read_only": 1
   },
   {
@@ -286,12 +287,20 @@
   {
    "fieldname": "column_break_22",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "booking_id.select_program",
+   "fieldname": "robothink_program",
+   "fieldtype": "Link",
+   "label": "Robothink Program",
+   "options": "Robothink Program",
+   "read_only": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-02 23:23:33.109797",
+ "modified": "2022-05-13 12:27:06.869834",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Class Records",

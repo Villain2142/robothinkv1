@@ -59,6 +59,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "no_of_months",
    "fieldtype": "Float",
    "label": "No of Months",
@@ -69,6 +70,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "plan_type",
    "fieldtype": "Select",
    "label": "Plan Type",
@@ -82,6 +84,7 @@
    "options": "Robothink Program"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "tokens",
    "fieldtype": "Float",
    "label": "Tokens"
@@ -89,7 +92,7 @@
  ],
  "icon": "fa fa-flag",
  "links": [],
- "modified": "2022-05-03 17:54:47.806797",
+ "modified": "2022-05-06 16:22:32.008117",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Robothink Fee Plan",

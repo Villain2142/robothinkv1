@@ -48,7 +48,7 @@ class Bookings(Document):
 			child_doc.save()
 		if self.paid_amount ==0:
 			self.due_amount = self.amount
-		if self.status == "Active":
+		if self.process_status == "Completed":
 			if self.total_active_tokens == 0:
 				if self.available_tokens != 0:
 					self.total_active_tokens = 1
@@ -66,6 +66,8 @@ class Bookings(Document):
 			batch_doc.occupied_seats = float(batch_doc.occupied_seats) + 1
 			batch_doc.available_seats = float(batch_doc.no_of_seats) - batch_doc.occupied_seats
 			batch_doc.save()
+			if self.paid_amount ==0:
+				self.due_amount = self.amount
 			# if len(batch_doc.enrolled_students)>0:
 			# 	child_list = []
 			# 	for x in batch_doc.enrolled_students:

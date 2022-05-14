@@ -18,6 +18,10 @@
   "column_break_8",
   "program_abbreviation",
   "status",
+  "section_break_12",
+  "total_amount_received",
+  "column_break_14",
+  "main_course",
   "section_break_courses",
   "courses",
   "schedule_section",
@@ -35,7 +39,9 @@
   "column_break_11",
   "intro_video",
   "hero_image",
-  "description"
+  "description",
+  "transactions_section",
+  "program_transactions"
  ],
  "fields": [
   {
@@ -203,11 +209,45 @@
    "fieldname": "robothink_program_details_section",
    "fieldtype": "Section Break",
    "label": "RoboThink Program Details"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "transactions_section",
+   "fieldtype": "Section Break",
+   "label": "Transactions"
+  },
+  {
+   "fieldname": "program_transactions",
+   "fieldtype": "Table",
+   "label": "Program Transactions",
+   "options": "Program Transactions",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_amount_received",
+   "fieldtype": "Currency",
+   "label": "Total Amount Received",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "main_course",
+   "fieldtype": "Link",
+   "label": "Main Course",
+   "options": "Courses",
+   "read_only": 1
   }
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2022-05-04 21:43:55.292254",
+ "modified": "2022-05-13 12:21:43.985261",
  "modified_by": "Administrator",
  "module": "Robothink",
  "name": "Robothink Program",

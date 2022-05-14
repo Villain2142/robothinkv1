@@ -34,6 +34,7 @@ class CheckInDetails(Document):
 	def validate(self):
 		self.validate_code()
 		self.validate_enrolled_childs()
+		self.child_attendance_update()
 
 	@frappe.whitelist()
 	def validate_enrolled_childs(self):
@@ -49,7 +50,6 @@ class CheckInDetails(Document):
 							self.append("check_in_records", {
 								"child_id": child.child,
 								"facility": self.facility,
-								"instructors": self.instructors
 							})
 		else:
 			if self.batch:
@@ -59,7 +59,6 @@ class CheckInDetails(Document):
     						self.append("check_in_records", {
 							"child_id": child.child,
 							"facility": self.facility,
-							"instructors": self.instructors
 						})
 
 	@frappe.whitelist()
@@ -71,7 +70,6 @@ class CheckInDetails(Document):
 					self.append("check_in_records", {
 						"child_id": child.child,
       					"facility": self.facility,
-						"instructors": self.instructors
 					})
 
 	@frappe.whitelist()
@@ -111,89 +109,40 @@ class CheckInDetails(Document):
 
 	@frappe.whitelist()
 	def child_attendance_update(self):
-		if self.active_tokens:
-			booking_id =  frappe.get_doc("Bookings", {"child_name":self.child_id})
-			if booking_id.total_active_tokens:
-				active_tokens =booking_id.total_active_tokens -1
-				used_tokens = booking_id.used_tokens + 1
-				booking_id.db_set("total_active_tokens",active_tokens)
-				booking_id.db_set("used_tokens",used_tokens)
-				self.active_tokens -= 1
-			if frappe.db.exists("Class Records",{"child_name":self.child_id}):
-				if frappe.db.exists("Class Records",{"child_name":self.child_id,"status":"Out"}):
-					class_record = frappe.get_doc("Class Records",{"child_name":self.child_id})
-					class_record.status = "In"
-					class_record.start_time = frappe.utils.get_datetime()
-					class_record.append("date_wise", {
-						"room": self.facility,
-						"instructor": self.instructors,
-						"check_in": frappe.utils.get_datetime(),
-					})
-					class_record.save()
-					self.append("check_in_records", {
-						"child_id": self.child_id,
-						"facility": self.facility,
-						"instructors": self.instructors,
-						"check_in_time": frappe.utils.get_datetime(),
-						"duration" : 1800,
-					})
-					frappe.msgprint("Class Record Created")
-					self.child_id = ""
-					self.parent_id = ""
-					self.booking_id = ""
-					self.active_tokens = ""
-					self.course = ""
-					self.child_name = ""
-					self.parent_name = ""
-					self.save()
-					self.reload()
-					return True
-				else:
-					frappe.msgprint("Class Record already Exists")
-					self.child_id = ""
-					self.parent_id = ""
-					self.booking_id = ""
-					self.active_tokens = ""
-					self.course = ""
-					self.child_name = ""
-					self.parent_name = ""
-					self.save()
-					self.reload()
-					return True
-			else:
-				class_record = frappe.new_doc("Class Records")
-				class_record.child_name = self.child_id
-				class_record.venue = self.venue
-				class_record.status = "In"
-				class_record.start_time = frappe.utils.get_datetime()
-				class_record.append("date_wise", {
-					"room": self.facility,
-					"instructor": self.instructors,
-					"check_in": frappe.utils.get_datetime(),
-				})
-				class_record.save()
-				self.append("check_in_records", {
-					"child_id": self.child_id,
-					"facility": self.facility,
-					"instructors": self.instructors,
-					"check_in_time": frappe.utils.get_datetime(),
-					"duration" : 1800,
-				})
-				frappe.msgprint("Class Record Created")
-				self.child_id = ""
-				self.parent_id = ""
-				self.booking_id = ""
-				self.active_tokens = ""
-				self.course = ""
-				self.child_name = ""
-				self.parent_name = ""
-				self.save()
-				self.reload()
-				return True
-		else:
-			frappe.msgprint("There is no Active Tokens")
-		self.save()
-		self.reload()
+		if self.check_in_records:
+			for record in self.check_in_records:
+				if not record.check_in_time and record.attendance == "Present":
+					booking_id =  frappe.get_doc("Bookings", {"child_name":record.child_id})
+					if booking_id.total_active_tokens:
+						active_tokens =booking_id.total_active_tokens -1
+						used_tokens = booking_id.used_tokens + 1
+						booking_id.db_set("total_active_tokens",active_tokens)
+						booking_id.db_set("used_tokens",used_tokens)
+						self.active_tokens -= 1
+					if frappe.db.exists("Program Lobby",{"batch":self.batch ,"date":self.date }):
+						p_lobby = frappe.get_doc("Program Lobby",{"batch":self.batch ,"date":self.date })
+						p_lobby.append("lobby_child_details", {
+							"child": record.child_id,
+							"program": self.program,
+							"in_time": frappe.utils.get_datetime(),
+						})
+						p_lobby.save()
+					else:
+						p_lobby = frappe.new_doc("Program Lobby")
+						p_lobby.company = self.company
+						p_lobby.franchise = self.franchise
+						p_lobby.venue = self.venue
+						p_lobby.batch = self.batch
+						p_lobby.date = self.date
+						p_lobby.append("lobby_child_details", {
+							"child": record.child_id,
+							"program": self.program,
+							"in_time": frappe.utils.get_datetime(),
+						})
+						p_lobby.save()
+					record.check_in_time = frappe.utils.get_datetime()
+
+
 
 	@frappe.whitelist()
 	def child_records_update(self):
@@ -205,59 +154,14 @@ class CheckInDetails(Document):
 				booking_id.db_set("total_active_tokens",active_tokens)
 				booking_id.db_set("used_tokens",used_tokens)
 				self.active_tokens -= 1
-			if frappe.db.exists("Class Records",{"child_name":self.child_id}):
-				if frappe.db.exists("Class Records",{"child_name":self.child_id,"status":"Out"}):
-					class_record = frappe.get_doc("Class Records",{"child_name":self.child_id})
-					class_record.status = "In"
-					class_record.start_time = frappe.utils.get_datetime()
-					class_record.append("date_wise", {
-						"room": self.facility,
-						"instructor": self.instructors,
-						"check_in": frappe.utils.get_datetime(),
-					})
-					class_record.save()
-					self.append("check_in_records", {
-						"child_id": self.child_id,
-						"facility": self.facility,
-						"instructors": self.instructors,
-						"check_in_time": frappe.utils.get_datetime(),
-						"duration" : 1800,
-					})
-					frappe.msgprint("Class Record Created")
-					self.child_id = ""
-					self.parent_id = ""
-					self.booking_id = ""
-					self.active_tokens = ""
-					self.course = ""
-					self.child_name = ""
-					self.parent_name = ""
-					self.save()
-					self.reload()
-					return True
-				else:
-					frappe.msgprint("Class Record already Exists")
-					self.child_id = ""
-					self.parent_id = ""
-					self.booking_id = ""
-					self.active_tokens = ""
-					self.course = ""
-					self.child_name = ""
-					self.parent_name = ""
-					self.save()
-					self.reload()
-					return True
-			else:
-				class_record = frappe.new_doc("Class Records")
-				class_record.child_name = self.child_id
-				class_record.venue = self.venue
-				class_record.status = "In"
-				class_record.start_time = frappe.utils.get_datetime()
-				class_record.append("date_wise", {
-					"room": self.facility,
-					"instructor": self.instructors,
-					"check_in": frappe.utils.get_datetime(),
+			if frappe.db.exists("Program Lobby",{"batch":self.batch}):
+				p_lobby = frappe.get_doc("Program Lobby",{"batch":self.batch ,"date":self.date })
+				p_lobby.append("lobby_child_details", {
+					"child": self.facility,
+					"program": self.program,
+					"in_time": frappe.utils.get_datetime(),
 				})
-				class_record.save()
+				p_lobby.save()
 				self.append("check_in_records", {
 					"child_id": self.child_id,
 					"facility": self.facility,
@@ -265,7 +169,37 @@ class CheckInDetails(Document):
 					"check_in_time": frappe.utils.get_datetime(),
 					"duration" : 1800,
 				})
-				frappe.msgprint("Class Record Created")
+				frappe.msgprint("Added to Lobby")
+				self.child_id = ""
+				self.parent_id = ""
+				self.booking_id = ""
+				self.active_tokens = ""
+				self.course = ""
+				self.child_name = ""
+				self.parent_name = ""
+				self.save()
+				self.reload()
+				return True
+			else:
+				p_lobby = frappe.new_doc("Program Lobby")
+				p_lobby.company = self.company
+				p_lobby.franchise = self.franchise
+				p_lobby.venue = self.venue
+				p_lobby.batch = self.batch
+				p_lobby.append("lobby_child_details", {
+					"child": self.facility,
+					"program": self.program,
+					"in_time": frappe.utils.get_datetime(),
+				})
+				p_lobby.save()
+				self.append("check_in_records", {
+					"child_id": self.child_id,
+					"facility": self.facility,
+					"instructors": self.instructors,
+					"check_in_time": frappe.utils.get_datetime(),
+					"duration" : 1800,
+				})
+				frappe.msgprint("Added to Lobby")
 				self.child_id = ""
 				self.parent_id = ""
 				self.booking_id = ""
